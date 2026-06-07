@@ -633,6 +633,10 @@ html, body { background: #1a1410; }
   padding: 120px 48px;
   max-width: 1400px;
   margin: 0 auto;
+  background-image: url("data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20viewBox%3D%270%200%20200%20300%27%3E%3Cg%20opacity%3D%270.55%27%3E%3Cpath%20d%3D%27M100%2020%20C%2040%2080%2C%2030%20200%2C%20100%20280%20C%20170%20200%2C%20160%2080%2C%20100%2020%20Z%27%20fill%3D%27%23e5d6c0%27%2F%3E%3Cpath%20d%3D%27M100%2030%20L%20100%20270%27%20stroke%3D%27%23d8c4a8%27%20stroke-width%3D%272%27%20fill%3D%27none%27%2F%3E%3Cpath%20d%3D%27M100%2080%20L%20130%20100%20M100%2080%20L%2070%20100%20M100%20130%20L%20145%20155%20M100%20130%20L%2055%20155%20M100%20180%20L%20140%20205%20M100%20180%20L%2060%20205%20M100%20225%20L%20130%20245%20M100%20225%20L%2070%20245%27%20stroke%3D%27%23d8c4a8%27%20stroke-width%3D%271.4%27%20fill%3D%27none%27%2F%3E%3C%2Fg%3E%3C%2Fsvg%3E");
+  background-repeat: no-repeat;
+  background-position: right -120px center;
+  background-size: 430px auto;
 }
 .v2 .services-head {
   display: grid;
@@ -2959,7 +2963,14 @@ html, body { background: var(--cream); }
    teaser. Categories are native <details> accordions: collapsed
    on mobile (Facials open by default), always-open on desktop.
    =========================================================== */
-.svc { background: var(--cream); color: var(--ink); }
+.svc {
+  background-color: var(--cream);
+  background-image: url("data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20viewBox%3D%270%200%20200%20300%27%3E%3Cg%20opacity%3D%270.55%27%3E%3Cpath%20d%3D%27M100%2020%20C%2040%2080%2C%2030%20200%2C%20100%20280%20C%20170%20200%2C%20160%2080%2C%20100%2020%20Z%27%20fill%3D%27%23e5d6c0%27%2F%3E%3Cpath%20d%3D%27M100%2030%20L%20100%20270%27%20stroke%3D%27%23d8c4a8%27%20stroke-width%3D%272%27%20fill%3D%27none%27%2F%3E%3Cpath%20d%3D%27M100%2080%20L%20130%20100%20M100%2080%20L%2070%20100%20M100%20130%20L%20145%20155%20M100%20130%20L%2055%20155%20M100%20180%20L%20140%20205%20M100%20180%20L%2060%20205%20M100%20225%20L%20130%20245%20M100%20225%20L%2070%20245%27%20stroke%3D%27%23d8c4a8%27%20stroke-width%3D%271.4%27%20fill%3D%27none%27%2F%3E%3C%2Fg%3E%3C%2Fsvg%3E"), url("data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20viewBox%3D%270%200%20200%20300%27%3E%3Cg%20opacity%3D%270.55%27%3E%3Cg%20transform%3D%27rotate%28180%20100%20150%29%27%3E%3Cpath%20d%3D%27M100%2020%20C%2040%2080%2C%2030%20200%2C%20100%20280%20C%20170%20200%2C%20160%2080%2C%20100%2020%20Z%27%20fill%3D%27%23e5d6c0%27%2F%3E%3Cpath%20d%3D%27M100%2030%20L%20100%20270%27%20stroke%3D%27%23d8c4a8%27%20stroke-width%3D%272%27%20fill%3D%27none%27%2F%3E%3Cpath%20d%3D%27M100%2080%20L%20130%20100%20M100%2080%20L%2070%20100%20M100%20130%20L%20145%20155%20M100%20130%20L%2055%20155%20M100%20180%20L%20140%20205%20M100%20180%20L%2060%20205%20M100%20225%20L%20130%20245%20M100%20225%20L%2070%20245%27%20stroke%3D%27%23d8c4a8%27%20stroke-width%3D%271.4%27%20fill%3D%27none%27%2F%3E%3C%2Fg%3E%3C%2Fg%3E%3C%2Fsvg%3E");
+  background-repeat: no-repeat, no-repeat;
+  background-position: right -130px top -40px, left -120px bottom 14%;
+  background-size: 470px auto, 410px auto;
+  color: var(--ink);
+}
 .svc a { text-decoration: none; color: inherit; }
 .svc .svc-subnav {
   position: sticky; top: 0; z-index: 50;
