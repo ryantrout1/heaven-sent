@@ -9,8 +9,7 @@ export default function Services() {
   return (
     <>
       <Nav />
-      <Section version="v2" html={sections.services} />
-      <Section version="v4" html={sections.book} />
+      <Section version="v4" html={sections.servicesFull} />
       <Footer />
     </>
   );
