@@ -3043,11 +3043,11 @@ html, body { background: var(--cream); }
    live site uses the v4 nav, so it needs its own mobile rule.
    =========================================================== */
 @media (max-width: 768px) {
-  .v4 nav { flex-wrap: wrap; padding: 16px 22px; gap: 12px; }
-  .v4 nav .brand { font-size: 22px; gap: 10px; }
-  .v4 nav .brand .v4-brand-img { height: 38px; }
-  .v4 nav ul { order: 3; flex-basis: 100%; justify-content: center; gap: 22px; padding-top: 4px; }
-  .v4 nav .book { padding: 10px 20px; }
+  .v4 nav { flex-wrap: wrap; justify-content: center; padding: 16px 22px; gap: 10px 18px; }
+  .v4 nav .brand { flex-basis: 100%; justify-content: center; font-size: 24px; gap: 10px; }
+  .v4 nav .brand .v4-brand-img { height: 36px; }
+  .v4 nav .book { order: 2; padding: 10px 22px; }
+  .v4 nav ul { order: 3; flex-basis: 100%; justify-content: center; gap: 22px; padding-top: 2px; }
 }
 @media (max-width: 640px) {
   .v4 .hero { padding: 26px 22px 64px; }
