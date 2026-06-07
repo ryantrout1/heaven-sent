@@ -1584,19 +1584,42 @@ html, body { background: #1a1410; }
   border-radius: 50% 50% 8% 8% / 12% 12% 8% 8%;
   position: relative;
 }
-.v4 .about-visual .stamp {
+/* brand business card — flips on hover (desktop) / tap (touch) */
+.v4 .about-visual .about-card {
   position: absolute;
-  bottom: -28px; right: -28px;
-  width: 150px; height: 150px;
-  filter: drop-shadow(0 16px 30px rgba(90,70,50,0.28));
+  right: -26px; bottom: -26px;
+  width: 220px; height: 138px;
+  perspective: 1100px;
+  transform: rotate(3deg);
+  z-index: 4;
+  cursor: pointer;
 }
-.v4 .about-visual .stamp svg { width: 100%; height: 100%; display: block; }
-.v4 .about-visual .stamp .seal-ring {
-  transform-box: view-box;
-  transform-origin: 75px 75px;
-  animation: seal-spin 32s linear infinite;
+.v4 .about-visual .about-card .ac-inner {
+  position: absolute; inset: 0;
+  transform-style: preserve-3d;
+  transition: transform 0.85s cubic-bezier(0.2,0.7,0.2,1);
 }
-@keyframes seal-spin { to { transform: rotate(360deg); } }
+@media (hover: hover) {
+  .v4 .about-visual .about-card:hover .ac-inner { transform: rotateY(180deg); }
+}
+.v4 .about-visual .about-card.flipped .ac-inner { transform: rotateY(180deg); }
+.v4 .about-visual .about-card .ac-face {
+  position: absolute; inset: 0;
+  -webkit-backface-visibility: hidden; backface-visibility: hidden;
+  border-radius: 12px;
+  box-shadow: 0 18px 38px -18px rgba(90,70,50,0.5);
+  display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center;
+}
+.v4 .about-visual .about-card .ac-front { background: var(--cream); border: 1px solid var(--sand); }
+.v4 .about-visual .about-card .ac-back { background: var(--coffee); transform: rotateY(180deg); gap: 12px; padding: 0 18px; }
+.v4 .about-visual .about-card .ac-logo { width: 30px; height: 30px; margin-bottom: 6px; }
+.v4 .about-visual .about-card .ac-name { font-family: 'Playfair Display', serif; font-size: 15px; letter-spacing: 3px; color: var(--coffee); }
+.v4 .about-visual .about-card .ac-sub { font-family: 'Playfair Display', serif; font-size: 12px; letter-spacing: 6px; color: var(--mocha); margin-top: 1px; }
+.v4 .about-visual .about-card .ac-rule { width: 30px; height: 1px; background: var(--taupe); margin: 9px 0; }
+.v4 .about-visual .about-card .ac-loc { font-size: 9.5px; letter-spacing: 2.5px; color: var(--rose-deep); }
+.v4 .about-visual .about-card .ac-tag { font-family: 'Playfair Display', serif; font-style: italic; font-size: 16px; color: var(--cream); }
+.v4 .about-visual .about-card .ac-book { display: inline-block; padding: 8px 16px; border: 1px solid rgba(246,239,230,0.55); border-radius: 999px; color: var(--cream); font-size: 9.5px; letter-spacing: 2px; text-decoration: none; transition: background 0.25s; }
+.v4 .about-visual .about-card .ac-book:hover { background: rgba(246,239,230,0.12); }
 
 /* scroll reveal — armed only when JS is on, so it never hides if JS fails */
 .js .reveal-up { opacity: 0; transform: translateY(26px) scale(1.03); }
@@ -1606,10 +1629,11 @@ html, body { background: #1a1410; }
 }
 
 @media (max-width: 640px) {
-  .v4 .about-visual .stamp { width: 126px; height: 126px; right: -12px; bottom: -16px; }
+  .v4 .about-visual .about-card { width: 188px; height: 118px; right: -8px; bottom: -16px; }
+  .v4 .about-visual .about-card .ac-name { font-size: 14px; }
 }
 @media (prefers-reduced-motion: reduce) {
-  .v4 .about-visual .stamp .seal-ring { animation: none; }
+  .v4 .about-visual .about-card .ac-inner { transition: none; }
   .js .reveal-up, .reveal-up.is-visible { opacity: 1 !important; transform: none !important; transition: none !important; }
 }
 .v4 .about-content .eyebrow {
