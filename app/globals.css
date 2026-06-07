@@ -663,12 +663,13 @@ html, body { background: #1a1410; }
 .v2 .service-list { display: flex; flex-direction: column; }
 .v2 .service-row {
   display: grid;
-  grid-template-columns: 80px 1fr 1.4fr 1fr auto;
+  grid-template-columns: 80px 1fr 1.4fr auto;
   gap: 32px;
   align-items: center;
   padding: 36px 0;
   border-top: 1px solid var(--sand);
   cursor: pointer;
+  text-decoration: none;
   transition: padding 0.3s;
 }
 .v2 .service-row:last-child { border-bottom: 1px solid var(--sand); }
