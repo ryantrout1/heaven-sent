@@ -3003,12 +3003,6 @@ html, body { background: var(--cream); }
 .svc .svc-cta:hover { background: var(--rose-deep); }
 .svc .svc-foot { text-align: center; padding: 60px 24px; margin-top: 70px; background: var(--cream-2); font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 17px; color: var(--mocha); }
 
-/* desktop: every category always expanded, no chevron/count */
-@media (min-width: 769px) {
-  .svc details.svc-acc > .svc-body { display: block !important; }
-  .svc summary.svc-cat-head { cursor: default; }
-  .svc .svc-toggle { display: none; }
-}
 /* mobile: tighter padding, single-column add-ons */
 @media (max-width: 640px) {
   .svc .svc-intro, .svc .svc-cat { padding-left: 22px; padding-right: 22px; }

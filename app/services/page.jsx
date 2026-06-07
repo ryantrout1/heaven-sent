@@ -2,6 +2,7 @@ import sections from '../../lib/sections.json';
 import Nav from '../../components/Nav';
 import Footer from '../../components/Footer';
 import Section from '../../components/Section';
+import ServicesEnhancer from '../../components/ServicesEnhancer';
 
 export const metadata = { title: 'Services · Heaven Sent Beauty' };
 
@@ -10,6 +11,7 @@ export default function Services() {
     <>
       <Nav />
       <Section version="v4" html={sections.servicesFull} />
+      <ServicesEnhancer />
       <Footer />
     </>
   );
