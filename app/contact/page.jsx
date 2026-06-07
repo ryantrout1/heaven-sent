@@ -23,12 +23,12 @@ export default function Contact() {
             <h1>Come say <em style={{ fontFamily: "'Cormorant Garamond', serif", fontStyle: 'italic', color: 'var(--rose-deep)' }}>hello</em>.</h1>
             <p style={lead}>Questions about a treatment, or want to find the right fit for your skin? Reach out — or book directly and we&apos;ll take it from there.</p>
             <div style={grid}>
-              <div><div style={label}>Studio</div><div style={val}>Buckeye, Arizona{/* TODO: full address */}</div></div>
+              <div><div style={label}>Studio</div><div style={val}>111 Monroe Ave STE 101, Buckeye, AZ 85326</div></div>
               <div><div style={label}>Hours</div><div style={val}>By appointment{/* TODO: hours */}</div></div>
-              <div><div style={label}>Phone</div><div style={val}>(000) 000-0000{/* TODO */}</div></div>
+              <div><div style={label}>Phone</div><div style={val}>623-215-6084</div></div>
               <div><div style={label}>Email</div><div style={val}>hello@heavensent.com{/* TODO */}</div></div>
             </div>
-            <a href="#book" style={cta}>Book an Appointment</a>
+            <a href="https://www.vagaro.com/monroesalonandspa" target="_blank" rel="noopener noreferrer" style={cta}>Book an Appointment</a>
           </div>
         </section>
       </div>
