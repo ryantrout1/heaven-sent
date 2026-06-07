@@ -1418,29 +1418,42 @@ html, body { background: #1a1410; }
   margin-bottom: 2px;
 }
 
-/* trust strip */
+/* trust strip — auto-scrolling marquee */
 .v4 .trust {
   background: var(--cream-2);
-  padding: 28px 48px;
+  padding: 26px 0;
   border-top: 1px dashed var(--taupe);
   border-bottom: 1px dashed var(--taupe);
+  overflow: hidden;
 }
-.v4 .trust-inner {
-  max-width: 1400px; margin: 0 auto;
-  display: flex; justify-content: space-around; align-items: center;
-  flex-wrap: wrap; gap: 24px;
+.v4 .trust-track {
+  display: flex;
+  width: max-content;
+  animation: trust-marquee 48s linear infinite;
+  will-change: transform;
 }
-.v4 .trust-inner span {
+.v4 .trust:hover .trust-track { animation-play-state: paused; }
+.v4 .trust-group { display: flex; flex: 0 0 auto; align-items: center; }
+.v4 .trust-group span {
   font-family: 'Playfair Display', serif;
   font-style: italic;
   font-size: 18px;
   color: var(--coffee);
+  white-space: nowrap;
+  padding: 0 30px;
 }
-.v4 .trust-inner span::before {
+.v4 .trust-group span::before {
   content: '✦';
   margin-right: 12px;
   color: var(--rose-deep);
   font-style: normal;
+}
+@keyframes trust-marquee {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .v4 .trust-track { animation: none; }
 }
 
 /* services — organic cards */
