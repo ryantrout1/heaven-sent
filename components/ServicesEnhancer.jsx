@@ -26,12 +26,24 @@ export default function ServicesEnhancer() {
       if (location.hash.length > 1) openAndScroll(location.hash.slice(1));
     };
 
+    // Exclusive accordion: opening one category closes the others.
+    // (Backs up the native name="svc-cat" grouping in case a browser lacks it.)
+    const onToggle = (e) => {
+      const det = e.target;
+      if (!det.classList || !det.classList.contains('svc-acc') || !det.open) return;
+      document.querySelectorAll('details.svc-acc').forEach((other) => {
+        if (other !== det && other.open) other.open = false;
+      });
+    };
+
     document.addEventListener('click', onClick);
+    document.addEventListener('toggle', onToggle, true);
     window.addEventListener('hashchange', onHash);
     if (location.hash.length > 1) openAndScroll(location.hash.slice(1));
 
     return () => {
       document.removeEventListener('click', onClick);
+      document.removeEventListener('toggle', onToggle, true);
       window.removeEventListener('hashchange', onHash);
     };
   }, []);
