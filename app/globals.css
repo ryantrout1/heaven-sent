@@ -667,7 +667,7 @@ html, body { background: #1a1410; }
 .v2 .service-list { display: flex; flex-direction: column; }
 .v2 .service-row {
   display: grid;
-  grid-template-columns: 80px 1fr 1.4fr auto;
+  grid-template-columns: 1fr 1.4fr auto;
   gap: 32px;
   align-items: center;
   padding: 36px 0;
@@ -678,12 +678,6 @@ html, body { background: #1a1410; }
 }
 .v2 .service-row:last-child { border-bottom: 1px solid var(--sand); }
 .v2 .service-row:hover { padding-left: 16px; background: linear-gradient(to right, transparent, var(--cream-2) 100%); }
-.v2 .service-row .no {
-  font-family: 'Italiana', serif;
-  font-size: 14px;
-  color: var(--mocha);
-  letter-spacing: 0.2em;
-}
 .v2 .service-row h3 {
   font-family: 'Playfair Display', serif;
   font-weight: 500;
@@ -2885,7 +2879,7 @@ html, body { background: #1a1410; }
   .v5 .why-grid, .v5 .testi-c-grid, .v5 .f-grid {
     grid-template-columns: 1fr;
   }
-  .v2 .service-row { grid-template-columns: 40px 1fr auto; }
+  .v2 .service-row { grid-template-columns: 1fr auto; }
   .v2 .service-row .desc { display: none; }
   .v2 .service-row .arr { justify-self: end; }
   .v3 .hero-strip { grid-template-columns: 1fr; }
