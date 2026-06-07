@@ -1586,28 +1586,31 @@ html, body { background: #1a1410; }
 }
 .v4 .about-visual .stamp {
   position: absolute;
-  bottom: -30px; right: -30px;
+  bottom: -28px; right: -28px;
   width: 150px; height: 150px;
-  background: var(--coffee);
-  color: var(--cream);
-  border-radius: 50%;
-  display: grid; place-items: center;
-  text-align: center;
-  font-family: 'Playfair Display', serif;
-  font-style: italic;
-  font-size: 18px;
-  line-height: 1.1;
-  padding: 20px;
+  filter: drop-shadow(0 16px 30px rgba(90,70,50,0.28));
 }
-.v4 .about-visual .stamp small {
-  display: block;
-  font-family: 'Outfit', sans-serif;
-  font-style: normal;
-  font-size: 9px;
-  letter-spacing: 0.25em;
-  text-transform: uppercase;
-  margin-top: 6px;
-  color: var(--rose);
+.v4 .about-visual .stamp svg { width: 100%; height: 100%; display: block; }
+.v4 .about-visual .stamp .seal-ring {
+  transform-box: view-box;
+  transform-origin: 75px 75px;
+  animation: seal-spin 32s linear infinite;
+}
+@keyframes seal-spin { to { transform: rotate(360deg); } }
+
+/* scroll reveal — armed only when JS is on, so it never hides if JS fails */
+.js .reveal-up { opacity: 0; transform: translateY(26px) scale(1.03); }
+.reveal-up.is-visible {
+  opacity: 1; transform: none;
+  transition: opacity 0.9s ease, transform 1.05s cubic-bezier(0.2,0.7,0.2,1);
+}
+
+@media (max-width: 640px) {
+  .v4 .about-visual .stamp { width: 126px; height: 126px; right: -12px; bottom: -16px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .v4 .about-visual .stamp .seal-ring { animation: none; }
+  .js .reveal-up, .reveal-up.is-visible { opacity: 1 !important; transform: none !important; transition: none !important; }
 }
 .v4 .about-content .eyebrow {
   font-size: 12px;

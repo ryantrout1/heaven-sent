@@ -1,4 +1,5 @@
 import './globals.css';
+import Reveal from '../components/Reveal';
 
 export const metadata = {
   title: 'Heaven Sent Beauty · Buckeye, AZ',
@@ -8,7 +9,11 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body>{children}</body>
+      <body>
+        <script dangerouslySetInnerHTML={{ __html: "try{document.documentElement.classList.add('js')}catch(e){}" }} />
+        {children}
+        <Reveal />
+      </body>
     </html>
   );
 }
