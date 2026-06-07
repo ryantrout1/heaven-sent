@@ -1584,46 +1584,6 @@ html, body { background: #1a1410; }
   border-radius: 50% 50% 8% 8% / 12% 12% 8% 8%;
   position: relative;
 }
-/* brand business card — sits in her hand, flips on hover (desktop) / tap (touch) */
-.v4 .about-visual .about-card {
-  position: absolute;
-  left: 44%;
-  top: 51%;
-  width: 39%;
-  aspect-ratio: 1.62 / 1;
-  transform: translate(-50%, -50%) rotate(-2deg);
-  perspective: 1100px;
-  container-type: inline-size;
-  z-index: 4;
-  cursor: pointer;
-}
-.v4 .about-visual .about-card .ac-inner {
-  position: absolute; inset: 0;
-  transform-style: preserve-3d;
-  transition: transform 0.85s cubic-bezier(0.2,0.7,0.2,1);
-}
-@media (hover: hover) {
-  .v4 .about-visual .about-card:hover .ac-inner { transform: rotateY(180deg); }
-}
-.v4 .about-visual .about-card.flipped .ac-inner { transform: rotateY(180deg); }
-.v4 .about-visual .about-card .ac-face {
-  position: absolute; inset: 0;
-  -webkit-backface-visibility: hidden; backface-visibility: hidden;
-  border-radius: 6cqw;
-  box-shadow: 0 7cqw 14cqw -6cqw rgba(60,46,32,0.6);
-  display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center;
-}
-.v4 .about-visual .about-card .ac-front { background: var(--cream); border: 1px solid var(--sand); }
-.v4 .about-visual .about-card .ac-back { background: var(--coffee); transform: rotateY(180deg); gap: 5cqw; padding: 0 8cqw; }
-.v4 .about-visual .about-card .ac-logo { width: 13cqw; height: 13cqw; margin-bottom: 2cqw; }
-.v4 .about-visual .about-card .ac-name { font-family: 'Playfair Display', serif; font-size: 7cqw; letter-spacing: 1.4cqw; color: var(--coffee); line-height: 1; }
-.v4 .about-visual .about-card .ac-sub { font-family: 'Playfair Display', serif; font-size: 5cqw; letter-spacing: 3cqw; color: var(--mocha); margin-top: 1cqw; }
-.v4 .about-visual .about-card .ac-rule { width: 13cqw; height: 1px; background: var(--taupe); margin: 4cqw 0; }
-.v4 .about-visual .about-card .ac-loc { font-size: 3.6cqw; letter-spacing: 1cqw; color: var(--rose-deep); }
-.v4 .about-visual .about-card .ac-tag { font-family: 'Playfair Display', serif; font-style: italic; font-size: 7.5cqw; color: var(--cream); line-height: 1.15; }
-.v4 .about-visual .about-card .ac-book { display: inline-block; padding: 3.5cqw 7cqw; border: 1px solid rgba(246,239,230,0.55); border-radius: 999px; color: var(--cream); font-size: 3.6cqw; letter-spacing: 1cqw; text-decoration: none; transition: background 0.25s; }
-.v4 .about-visual .about-card .ac-book:hover { background: rgba(246,239,230,0.12); }
-
 /* scroll reveal — armed only when JS is on, so it never hides if JS fails */
 .js .reveal-up { opacity: 0; transform: translateY(26px) scale(1.03); }
 .reveal-up.is-visible {
@@ -1632,7 +1592,6 @@ html, body { background: #1a1410; }
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .v4 .about-visual .about-card .ac-inner { transition: none; }
   .js .reveal-up, .reveal-up.is-visible { opacity: 1 !important; transform: none !important; transition: none !important; }
 }
 .v4 .about-content .eyebrow {
