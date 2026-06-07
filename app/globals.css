@@ -2874,11 +2874,17 @@ html, body { background: #1a1410; }
   border-radius: 14px;
   background-size: cover;
   background-position: center;
-  transition: transform 0.5s ease, filter 0.5s ease;
+  transition: transform 0.5s ease, filter 0.7s ease;
   cursor: pointer;
-  filter: saturate(0.92);
+  filter: grayscale(0.4) sepia(0.2) saturate(0.9) brightness(1.02);
 }
-.photo-gallery .g-item:hover { transform: scale(1.02); filter: saturate(1.08); }
+@media (hover: hover) {
+  .photo-gallery .g-item:hover { transform: scale(1.02); filter: none; }
+}
+.photo-gallery .g-item.g-lit { filter: none; }
+@media (prefers-reduced-motion: reduce) {
+  .photo-gallery .g-item { filter: none; transition: none; }
+}
 .photo-gallery .g-tall { grid-row: span 2; }
 .photo-gallery .g-wide { grid-column: span 2; }
 @media (max-width: 900px) {
