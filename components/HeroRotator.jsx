@@ -1,7 +1,7 @@
 'use client';
 import { useEffect } from 'react';
 
-// Message 0 must mirror what's already in the markup so there's no flash on load.
+// Message 0 mirrors the markup so there's no flash on load.
 const MESSAGES = [
   {
     eyebrow: 'A Buckeye Spa Studio',
@@ -29,8 +29,11 @@ const MESSAGES = [
   },
 ];
 
-const DISPLAY_MS = 6000;
-const FADE_MS = 700;
+const REST_MS = 6000;     // time a message stays fully shown
+const OUT_D = 420, OUT_STAG = 60;
+const IN_D = 540, IN_STAG = 70;
+const EASE_OUT = 'cubic-bezier(.4,0,.7,.4)';
+const EASE_IN = 'cubic-bezier(.22,1,.36,1)';
 
 export default function HeroRotator() {
   useEffect(() => {
@@ -44,9 +47,17 @@ export default function HeroRotator() {
     if (!label || lines.length < 3 || !para) return;
 
     const reduce = window.matchMedia('(prefers-reduced-motion: reduce)');
-    if (reduce.matches) return; // honor reduced motion: single static message
+    if (reduce.matches) return; // static single message, no rotation
 
-    col.classList.add('hero-msg-rotator');
+    // ordered top -> bottom; headline lines travel a little farther than the rest
+    const parts = [
+      { el: label, y: 8 },
+      { el: lines[0], y: 14 },
+      { el: lines[1], y: 14 },
+      { el: lines[2], y: 14 },
+      { el: para, y: 9 },
+    ];
+    if (btn) parts.push({ el: btn, y: 7 });
 
     const apply = (m) => {
       label.textContent = m.eyebrow;
@@ -58,23 +69,48 @@ export default function HeroRotator() {
     };
 
     let i = 0;
-    let swapTimer;
-    const cycle = () => {
-      if (document.hidden) return; // don't churn while tab is backgrounded
-      col.classList.add('swapping');
+    let timer, swapTimer;
+
+    const swap = () => {
+      if (document.hidden) { schedule(); return; }
+
+      // clear any leftover finished fills (elements rest at their natural style)
+      parts.forEach((p) => p.el.getAnimations().forEach((a) => a.cancel()));
+
+      // OUT — lift up and fade, staggered top to bottom
+      let outMax = 0;
+      parts.forEach((p, idx) => {
+        const delay = idx * OUT_STAG;
+        outMax = Math.max(outMax, delay + OUT_D);
+        p.el.animate(
+          [{ opacity: 1, transform: 'translateY(0)' },
+           { opacity: 0, transform: `translateY(-${p.y}px)` }],
+          { duration: OUT_D, delay, easing: EASE_OUT, fill: 'forwards' }
+        );
+      });
+
       swapTimer = setTimeout(() => {
         i = (i + 1) % MESSAGES.length;
         apply(MESSAGES[i]);
-        col.classList.remove('swapping');
-      }, FADE_MS);
+        // IN — rise from just below into place, same staggered cadence
+        parts.forEach((p, idx) => {
+          p.el.animate(
+            [{ opacity: 0, transform: `translateY(${p.y}px)` },
+             { opacity: 1, transform: 'translateY(0)' }],
+            { duration: IN_D, delay: idx * IN_STAG, easing: EASE_IN, fill: 'both' }
+          );
+        });
+        schedule();
+      }, outMax + 30);
     };
 
-    const interval = setInterval(cycle, DISPLAY_MS + FADE_MS);
+    function schedule() { timer = setTimeout(swap, REST_MS); }
+    schedule();
 
     return () => {
-      clearInterval(interval);
+      clearTimeout(timer);
       clearTimeout(swapTimer);
-      col.classList.remove('hero-msg-rotator', 'swapping');
+      parts.forEach((p) => p.el.getAnimations().forEach((a) => a.cancel()));
     };
   }, []);
 
