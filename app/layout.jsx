@@ -1,5 +1,6 @@
 import './globals.css';
 import Reveal from '../components/Reveal';
+import GalleryScroller from '../components/GalleryScroller';
 
 export const metadata = {
   title: 'Heaven Sent Beauty · Buckeye, AZ',
@@ -13,6 +14,7 @@ export default function RootLayout({ children }) {
         <script dangerouslySetInnerHTML={{ __html: "try{document.documentElement.classList.add('js')}catch(e){}" }} />
         {children}
         <Reveal />
+        <GalleryScroller />
       </body>
     </html>
   );
