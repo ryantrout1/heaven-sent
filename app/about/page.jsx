@@ -9,7 +9,7 @@ export default function About() {
   return (
     <>
       <Nav />
-      <Section version="v4" html={sections.about + sections.book} />
+      <Section version="v4" html={sections.aboutFull + sections.book} />
       <Footer />
     </>
   );

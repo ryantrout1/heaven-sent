@@ -3077,3 +3077,41 @@ html, body { background: var(--cream); }
   /* tighter menu teaser rows */
   .v2 .services .service-row { padding: 22px 0; gap: 14px; }
 }
+
+/* home "Meet Jayslyn" teaser link */
+.v4 .about-content .about-readmore {
+  display: inline-block;
+  margin-top: 28px;
+  font-family: 'Outfit', sans-serif;
+  font-size: 13px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--coffee);
+  text-decoration: none;
+  border-bottom: 1px solid var(--taupe);
+  padding-bottom: 4px;
+  transition: color 0.25s, border-color 0.25s;
+}
+.v4 .about-content .about-readmore span { margin-left: 6px; display: inline-block; transition: transform 0.25s; }
+.v4 .about-content .about-readmore:hover { color: var(--rose-deep); border-color: var(--rose-deep); }
+.v4 .about-content .about-readmore:hover span { transform: translateX(4px); }
+
+/* About page — richer sections below the intro */
+.v4 .about-more { background: var(--cream-2); padding: 16px 48px 120px; position: relative; }
+.v4 .am-inner { max-width: 1080px; margin: 0 auto; display: grid; gap: 72px; border-top: 1px solid var(--sand); padding-top: 72px; }
+.v4 .am-block .eyebrow { font-size: 12px; letter-spacing: 0.3em; text-transform: uppercase; color: var(--rose-deep); margin-bottom: 18px; }
+.v4 .am-block h3 { font-family: 'Playfair Display', serif; font-weight: 400; font-size: clamp(26px, 3vw, 38px); line-height: 1.15; color: var(--coffee); margin-bottom: 22px; }
+.v4 .am-block p { font-size: 16px; line-height: 1.8; color: var(--mocha); margin-bottom: 16px; max-width: 720px; }
+.v4 .am-steps { list-style: none; display: grid; grid-template-columns: repeat(3, 1fr); gap: 36px; margin-top: 4px; }
+.v4 .am-steps li { display: flex; gap: 16px; }
+.v4 .am-step-no { font-family: 'Outfit', sans-serif; font-size: 13px; letter-spacing: 0.2em; color: var(--rose-deep); padding-top: 5px; }
+.v4 .am-steps h4 { font-family: 'Playfair Display', serif; font-weight: 500; font-size: 19px; color: var(--ink); margin-bottom: 8px; }
+.v4 .am-steps p { font-size: 14.5px; line-height: 1.7; color: var(--mocha); margin: 0; max-width: none; }
+.v4 .am-tags { list-style: none; display: flex; flex-wrap: wrap; gap: 10px 12px; padding: 0; }
+.v4 .am-tags li { font-family: 'Outfit', sans-serif; font-size: 13px; letter-spacing: 0.05em; color: var(--coffee); background: var(--cream); border: 1px solid var(--sand); border-radius: 999px; padding: 9px 18px; }
+
+@media (max-width: 760px) {
+  .v4 .about-more { padding: 0 22px 70px; }
+  .v4 .am-inner { padding-top: 48px; gap: 48px; }
+  .v4 .am-steps { grid-template-columns: 1fr; gap: 26px; }
+}
