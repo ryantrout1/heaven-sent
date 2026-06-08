@@ -29,9 +29,9 @@ const MESSAGES = [
   },
 ];
 
-const REST_MS = 6000;     // time a message stays fully shown
-const OUT_D = 420, OUT_STAG = 60;
-const IN_D = 540, IN_STAG = 70;
+const REST_MS = 9000;     // time a message stays fully shown before the swap
+const OUT_D = 640, OUT_STAG = 85;
+const IN_D = 780, IN_STAG = 95;
 const EASE_OUT = 'cubic-bezier(.4,0,.7,.4)';
 const EASE_IN = 'cubic-bezier(.22,1,.36,1)';
 
