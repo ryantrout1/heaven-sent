@@ -1,6 +1,7 @@
 import './globals.css';
 import Reveal from '../components/Reveal';
 import GalleryScroller from '../components/GalleryScroller';
+import HeroRotator from '../components/HeroRotator';
 
 export const metadata = {
   title: 'Heaven Sent Beauty · Buckeye, AZ',
@@ -15,6 +16,7 @@ export default function RootLayout({ children }) {
         {children}
         <Reveal />
         <GalleryScroller />
+        <HeroRotator />
       </body>
     </html>
   );
