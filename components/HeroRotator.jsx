@@ -19,6 +19,14 @@ const MESSAGES = [
     p: 'Personalized facials, brows, lashes, and waxing \u2014 unrushed, attentive, and tailored to exactly what your skin needs today.',
     cta: 'Book Your Visit',
   },
+  {
+    eyebrow: 'Brows \u00b7 Lashes \u00b7 Skin',
+    l1: 'Brows, framed.',
+    l2: 'Lashes, fuller.',
+    l3: 'Skin, glowing.',
+    p: 'Brow and lash artistry, custom facials, and gentle waxing \u2014 finished with a calm that stays with you long after you leave.',
+    cta: 'Book a Treatment',
+  },
 ];
 
 const DISPLAY_MS = 6000;
