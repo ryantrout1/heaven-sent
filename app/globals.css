@@ -1595,6 +1595,7 @@ html, body { background: #1a1410; }
   color: var(--rose-deep);
   margin-bottom: 22px;
 }
+.v4 .about-content h1,
 .v4 .about-content h2 {
   font-family: 'Playfair Display', serif;
   font-weight: 400;
@@ -1603,6 +1604,7 @@ html, body { background: #1a1410; }
   color: var(--coffee);
   margin-bottom: 28px;
 }
+.v4 .about-content h1 em,
 .v4 .about-content h2 em { font-style: italic; color: var(--rose-deep); }
 .v4 .about-content p {
   font-size: 16px;
