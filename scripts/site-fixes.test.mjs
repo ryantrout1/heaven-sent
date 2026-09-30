@@ -45,7 +45,7 @@ test('BeautySalon JSON-LD has the required fields and nothing invented', () => {
   assert.equal(ld.url, SITE_URL);
   assert.deepEqual(ld.address, {
     '@type': 'PostalAddress',
-    streetAddress: '111 Monroe Ave Ste 101',
+    streetAddress: '111 Monroe Ave STE 101',
     addressLocality: 'Buckeye',
     addressRegion: 'AZ',
     postalCode: '85326',
