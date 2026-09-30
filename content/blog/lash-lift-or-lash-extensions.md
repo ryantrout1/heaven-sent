@@ -3,6 +3,8 @@ title: "Lash Lift or Lash Extensions: Which Should You Choose?"
 description: "Not sure whether a lash lift or lash extensions suit you? Here is how they differ, who each is for, and the options at Heaven Sent Beauty in Buckeye, AZ."
 path: "/blog/lash-lift-or-lash-extensions"
 date: 2026-09-30
+image: "/images/blog/lash-extensions-close-up.jpg"
+imageAlt: "Close-up of a natural eye with full, dark lash extensions"
 ---
 
 # Lash Lift or Lash Extensions: Which Should You Choose?
@@ -31,6 +33,8 @@ Extensions are added to your natural lashes one by one. There are three styles t
 - **Volume.** Dramatic, fluffy lashes with maximum volume.
 
 Extensions need fills to stay full. A fill refreshes and maintains your set, and each style has its own fill: classic, hybrid or volume.
+
+<img src="/images/blog/lash-extension-tray.jpg" alt="Tray of lash extension fans held with tweezers" width="1000" height="1115" style="display:block;margin:28px auto;max-width:440px">
 
 ## Which one is right for you?
 

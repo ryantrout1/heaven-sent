@@ -17,6 +17,8 @@ Brow lamination is a semi-permanent treatment that sets your brow hairs in a lif
 
 It works with the brows you already have. Because it is semi-permanent, it is not a one-day look.
 
+<img src="/images/blog/brow-and-lash-close-up.jpg" alt="Close-up of a brushed-up eyebrow above full lashes" width="985" height="1027" style="display:block;margin:28px auto;max-width:480px">
+
 ## Who it suits
 
 Lamination can be a good fit if:

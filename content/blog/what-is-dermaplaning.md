@@ -3,6 +3,8 @@ title: "What Is Dermaplaning, and Is It Right for You?"
 description: "Dermaplaning gently exfoliates dead skin cells and peach fuzz for smoother, brighter-looking skin. Here is how it works and what to expect at Heaven Sent Beauty in Buckeye, AZ."
 path: "/blog/what-is-dermaplaning"
 date: 2026-09-30
+image: "/images/blog/jayslyn-pink-gloves.jpg"
+imageAlt: "Jayslyn Tramp, licensed esthetician, pulling on pink gloves and smiling"
 ---
 
 # What Is Dermaplaning, and Is It Right for You?
@@ -36,6 +38,8 @@ At Heaven Sent Beauty, Jayslyn Tramp is a licensed esthetician trained in dermap
 - **The Dermaplaning Facial.** A facial built around dermaplaning to exfoliate dead cells and peach fuzz for ultra-smooth, radiant skin.
 - **As an add-on.** Dermaplaning can be added to another facial.
 - **Inside other services.** It is part of the Ultimate Firming Facial, which also uses LED, and part of the Full Face Rehab package with brow lamination and a brow wax.
+
+<img src="/images/blog/led-light-treatment.jpg" alt="A client resting under an LED light panel in a dim treatment room" width="1000" height="1000" style="display:block;margin:28px auto;max-width:480px">
 
 Current services and prices are always on the [Services page](/services).
 

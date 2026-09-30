@@ -3,6 +3,8 @@ title: "What to Expect at Your First Facial"
 description: "Nervous about a first facial? Here is what happens at Heaven Sent Beauty in Buckeye, AZ, from the consultation to the treatment to the take-home plan."
 path: "/blog/what-to-expect-at-your-first-facial"
 date: 2026-09-30
+image: "/images/blog/steam-facial-treatment-room.jpg"
+imageAlt: "A client lying back under a glowing arc light while a steamer warms the skin"
 ---
 
 # What to Expect at Your First Facial
@@ -23,11 +25,15 @@ You do not need to prepare much. It helps to think about:
 
 Every visit begins with a quiet conversation. You and Jayslyn Tramp, a licensed esthetician, talk through your skin and your goals before anything starts. This is the time to ask questions. The treatment is built around what you say, never around a template.
 
+<img src="/images/blog/jayslyn-in-studio.jpg" alt="Jayslyn Tramp, licensed esthetician at Heaven Sent Beauty, standing in front of a leaf-patterned wall" width="1000" height="1005" style="display:block;margin:28px auto;max-width:480px">
+
 ## Step 2: the treatment
 
 Next comes a facial tailored to you, using professional, botanically-based Skin Script Rx products. Jayslyn sees one client at a time, with no rushing and no stopwatch. The room is yours to pause, breathe and relax.
 
 How long you are there depends on the facial. A Customized Facial is 60 minutes, a Men's Facial is 45 minutes, and an Express Facial is 35 minutes.
+
+<img src="/images/blog/skin-script-masks.jpg" alt="A gloved hand holding Skin Script Pumpkin-Orange Enzyme and Golden Honey Nourishing Mask jars over a client" width="1000" height="964" style="display:block;margin:28px auto;max-width:560px">
 
 ## Step 3: afterward
 
