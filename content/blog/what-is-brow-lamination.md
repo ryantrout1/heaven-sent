@@ -2,7 +2,7 @@
 title: "What Is Brow Lamination?"
 description: "Brow lamination is a semi-permanent lift for fuller, fluffier, groomed brows. Learn how it works, who it suits and how to book it at Heaven Sent Beauty in Buckeye, AZ."
 path: "/blog/what-is-brow-lamination"
-date: 2026-09-30
+date: 2026-09-23
 image: "/images/gallery-brow.jpg"
 imageAlt: "Close-up of full, softly brushed-up eyebrows"
 ---

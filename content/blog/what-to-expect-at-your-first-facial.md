@@ -2,7 +2,7 @@
 title: "What to Expect at Your First Facial"
 description: "Nervous about a first facial? Here is what happens at Heaven Sent Beauty in Buckeye, AZ, from the consultation to the treatment to the take-home plan."
 path: "/blog/what-to-expect-at-your-first-facial"
-date: 2026-09-30
+date: 2026-09-09
 image: "/images/blog/steam-facial-treatment-room.jpg"
 imageAlt: "A client lying back under a glowing arc light while a steamer warms the skin"
 ---
