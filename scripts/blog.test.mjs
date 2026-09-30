@@ -112,11 +112,14 @@ test('body <img> needs width and height', () => {
   assert.ok(parseArticle('hello-world.md', md({ body: '# Hello\n\n<img src="/images/blog/pic.png" alt="x" width="1" height="1">\n' }), opts(t)));
 });
 
-test('loadArticles: missing dir is empty; ignores non-md; drafts excluded; newest first', () => {
+test('loadArticles: missing dir is empty; dotfiles ignored, stray files fail; drafts excluded; newest first', () => {
   const t = tmp();
   assert.deepEqual(loadArticles({ dir: path.join(t.root, 'nope'), publicDir: t.pub }), []);
   fs.writeFileSync(path.join(t.content, '.gitkeep'), '');
   assert.deepEqual(loadArticles({ dir: t.content, publicDir: t.pub }), []);
+  fs.writeFileSync(path.join(t.content, 'notes.txt'), 'x');
+  assert.throws(() => loadArticles({ dir: t.content, publicDir: t.pub }), /unexpected file/);
+  fs.unlinkSync(path.join(t.content, 'notes.txt'));
   const put = (slug, date, extra = '') =>
     fs.writeFileSync(path.join(t.content, `${slug}.md`), md({ slug, front: `title: "${slug}"\ndescription: "d"\npath: "/blog/${slug}"\ndate: ${date}\n${extra}` }));
   put('old-one', '2026-01-01');
