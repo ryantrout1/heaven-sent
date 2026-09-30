@@ -1,5 +1,5 @@
-import Nav from '../../components/Nav';
-import Footer from '../../components/Footer';
+import Nav from '../../../components/Nav';
+import Footer from '../../../components/Footer';
 
 export const metadata = { title: 'Contact · Heaven Sent Beauty' };
 
