@@ -6,6 +6,7 @@ import Breadcrumbs from '../../../../components/Breadcrumbs';
 import BookingSection from '../../../../components/BookingSection';
 import BlogCard from '../../../../components/BlogCard';
 import { getArticles, relatedArticles } from '../../../../lib/blog.mjs';
+import { optimizeBodyImages } from '../../../../lib/blog-html.mjs';
 import { BUSINESS_NAME, absoluteUrl } from '../../../../lib/site.mjs';
 import { articleImage, breadcrumbItems, formatDate, RSS_TYPES } from '../../../../lib/blog-schema.mjs';
 
@@ -48,7 +49,7 @@ export default function ArticlePage({ params }) {
   // The body's own "# heading" is the page's only h1; split after it to place the byline and image.
   const cut = a.html.indexOf('</h1>') + 5;
   const head = a.html.slice(0, cut);
-  const rest = a.html.slice(cut);
+  const rest = optimizeBodyImages(a.html.slice(cut));
   return (
     <>
       <Nav />
