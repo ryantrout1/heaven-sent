@@ -67,7 +67,7 @@ test('RSS is valid-shaped, newest first, escaped, with atom self link', () => {
   assert.equal((x.match(/<item>/g) || []).length, 3);
   assert.ok(x.indexOf('/blog/post-3') < x.indexOf('/blog/post-2'));
   assert.match(x, /<guid isPermaLink="true">https:\/\/www\.heavensentbeautyspa\.com\/blog\/post-3<\/guid>/);
-  assert.match(x, /<pubDate>Wed, 03 Sep 2026 12:00:00 GMT<\/pubDate>/);
+  assert.match(x, /<pubDate>Thu, 03 Sep 2026 12:00:00 GMT<\/pubDate>/);
   assert.match(x, /<description>Description 3<\/description>/);
 });
 

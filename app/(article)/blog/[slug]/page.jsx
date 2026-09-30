@@ -7,7 +7,7 @@ import BookingSection from '../../../../components/BookingSection';
 import BlogCard from '../../../../components/BlogCard';
 import { getArticles, relatedArticles } from '../../../../lib/blog.mjs';
 import { BUSINESS_NAME, absoluteUrl } from '../../../../lib/site.mjs';
-import { articleImage, breadcrumbItems, formatDate } from '../../../../lib/blog-schema.mjs';
+import { articleImage, breadcrumbItems, formatDate, RSS_TYPES } from '../../../../lib/blog-schema.mjs';
 
 // Unknown slugs are a real 404, never a 200.
 export const dynamicParams = false;
@@ -24,7 +24,7 @@ export function generateMetadata({ params }) {
   return {
     title: { absolute: `${a.title} | ${BUSINESS_NAME}` },
     description: a.description,
-    alternates: { canonical: url },
+    alternates: { canonical: url, types: RSS_TYPES },
     openGraph: {
       type: 'article',
       title: a.title,

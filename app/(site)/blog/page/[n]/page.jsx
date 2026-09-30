@@ -2,7 +2,7 @@ import { notFound } from 'next/navigation';
 import BlogIndex, { BLOG_INTRO } from '../../../../../components/BlogIndex';
 import { getArticles, paginate } from '../../../../../lib/blog.mjs';
 import { absoluteUrl } from '../../../../../lib/site.mjs';
-import { pageHref } from '../../../../../lib/blog-schema.mjs';
+import { pageHref, RSS_TYPES } from '../../../../../lib/blog-schema.mjs';
 
 // Only pages 2..N exist; page 1 is /blog itself.
 export const dynamicParams = false;
@@ -17,7 +17,7 @@ export function generateMetadata({ params }) {
   return {
     title: { absolute: `Blog, Page ${n} | Heaven Sent Beauty` },
     description: `${BLOG_INTRO} Page ${n} of the article list.`,
-    alternates: { canonical: absoluteUrl(pageHref(n)) },
+    alternates: { canonical: absoluteUrl(pageHref(n)), types: RSS_TYPES },
   };
 }
 
