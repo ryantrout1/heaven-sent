@@ -1,4 +1,3 @@
-@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&family=DM+Serif+Display&family=Italiana&family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400&family=Inter:wght@300;400;500;600&family=Outfit:wght@300;400;500;600&family=Jost:wght@300;400;500&family=Lato:wght@300;400;500;700&display=swap');
 
 
 /* ===========================================================
@@ -9,11 +8,11 @@
   --cream-2:    #efe5d6;
   --sand:       #e5d6c0;
   --taupe:      #c8b69a;
-  --mocha:      #8a6f55;
+  --mocha:      #765c44;
   --coffee:     #5a4632;
   --ink:        #2b2118;
   --rose:       #d4a89a;
-  --rose-deep:  #b88472;
+  --rose-deep:  #8a5a48;
   --gold:       #b08856;
   --leaf:       #6b7a5a;
 }
@@ -1793,6 +1792,15 @@ html, body { background: #1a1410; }
   color: var(--coffee);
   margin-bottom: 18px;
   font-style: italic;
+}
+.v4 footer p.foot-h {
+  font-family: 'Playfair Display', serif;
+  font-size: 20px;
+  font-weight: 500;
+  color: var(--coffee);
+  margin-bottom: 18px;
+  font-style: italic;
+  line-height: 1.3;
 }
 .v4 footer p, .v4 footer a {
   font-size: 14px;

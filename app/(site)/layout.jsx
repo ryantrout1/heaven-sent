@@ -1,5 +1,6 @@
 import '../globals.css';
 import SiteShell from '../../components/SiteShell';
+import FontLinks from '../../components/FontLinks';
 import { SITE_URL } from '../../lib/site.mjs';
 
 export const metadata = {
@@ -9,5 +10,5 @@ export const metadata = {
 };
 
 export default function SiteLayout({ children }) {
-  return <SiteShell>{children}</SiteShell>;
+  return <SiteShell head={<FontLinks />}>{children}</SiteShell>;
 }

@@ -184,8 +184,10 @@ test('footer has no skipped heading levels and both logos carry width and height
 test('fonts load from link tags, not a CSS @import, and only the families in use', () => {
   const css = fsSync.readFileSync('app/globals.css', 'utf8');
   assert.ok(!/@import url\(/.test(css), 'remove the @import font chain');
-  const layout = fsSync.readFileSync('app/(site)/layout.jsx', 'utf8');
-  assert.match(layout, /rel="preconnect"/);
-  assert.match(layout, /fonts\.googleapis\.com\/css2/);
-  assert.ok(!/Lato|DM\+Serif/.test(layout), 'unused families removed');
+  const links = fsSync.readFileSync('components/FontLinks.jsx', 'utf8');
+  assert.match(links, /rel="preconnect"/);
+  assert.match(links, /fonts\.googleapis\.com\/css2/);
+  assert.ok(!/Lato|DM\+Serif/.test(links), 'unused families removed');
+  for (const f of ['app/(site)/layout.jsx', 'app/(article)/blog/[slug]/layout.jsx'])
+    assert.match(fsSync.readFileSync(f, 'utf8'), /<FontLinks \/>/, `${f} must include the font links`);
 });
