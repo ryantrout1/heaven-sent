@@ -46,3 +46,5 @@ Before your appointment, tell Jayslyn if you have sensitive skin, any allergies,
 ## Book your brows
 
 You can see brow lamination, shaping and tinting, along with every other service, on the [Services page](/services). Hours are by appointment. You can book online or call 623-215-6084.
+
+See [brow lamination in Buckeye, AZ](/services/brows) for pricing and answers to common questions. Lamination is also part of the Full Face Rehab package with dermaplaning, which you can read about in [What Is Dermaplaning, and Is It Right for You?](/blog/what-is-dermaplaning).

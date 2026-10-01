@@ -46,3 +46,5 @@ The Services page lists every facial, from hydrating and acne to anti-aging, der
 ## Where to find us
 
 Heaven Sent Beauty is at 111 Monroe Ave STE 101, Buckeye, AZ 85326. Hours are by appointment. You can see everything we offer on the [Services page](/services).
+
+See all of our [facials in Buckeye, AZ](/services/facials), with prices and answers to common questions.

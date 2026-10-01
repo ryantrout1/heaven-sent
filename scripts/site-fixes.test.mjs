@@ -299,3 +299,40 @@ test('every article opens with its keyword in the first 100 words, and every art
     assert.ok(first100(plain(a.html)).includes(kw.toLowerCase()), `${a.slug}: "${kw}" not in first 100 words`);
   }
 });
+
+// ---- Phase 5: internal links both ways ----
+test('every article links to its service page and back; service pages list their articles', async () => {
+  const { getAllArticles } = await import('../lib/blog.mjs');
+  const { RELATED, relatedArticlesFor } = await import('../lib/related.mjs');
+  const arts = getAllArticles();
+  const bySlug = new Map(arts.map((a) => [a.slug, a]));
+  const hrefs = (a) => [...a.html.matchAll(/href="([^"#?]+)"/g)].map((m) => m[1]);
+  const listed = Object.values(RELATED).flat();
+  assert.equal(new Set(listed).size, listed.length, 'an article is listed under two service pages');
+  for (const a of arts) assert.ok(listed.includes(a.slug), `${a.slug} is not listed under any service page`);
+  for (const [service, slugs] of Object.entries(RELATED)) {
+    assert.ok(slugs.length >= (service === 'waxing' ? 1 : 2), `${service} needs related articles`);
+    for (const s of slugs) {
+      assert.ok(bySlug.has(s), `${service} lists unknown article ${s}`);
+      assert.ok(hrefs(bySlug.get(s)).includes(`/services/${service}`), `${s} does not link to /services/${service}`);
+    }
+    const live = relatedArticlesFor(service, arts); // all articles, so this checks the shape
+    assert.equal(live.length, slugs.length);
+  }
+});
+
+test('every article links to an older article (never a future one), except the oldest', async () => {
+  const { getAllArticles } = await import('../lib/blog.mjs');
+  const arts = getAllArticles();
+  const oldest = [...arts].sort((a, b) => a.date.localeCompare(b.date))[0];
+  const bySlug = new Map(arts.map((a) => [a.path, a]));
+  for (const a of arts) {
+    const links = [...a.html.matchAll(/href="(\/blog\/[^"#?]+)"/g)].map((m) => m[1]).filter((h) => h !== a.path);
+    for (const h of links) {
+      const t = bySlug.get(h);
+      assert.ok(t, `${a.slug} links to unknown article ${h}`);
+      assert.ok(t.date <= a.date, `${a.slug} (${a.date}) links to ${t.slug} dated later (${t.date}): it would 404 until then`);
+    }
+    if (a.slug !== oldest.slug) assert.ok(links.length >= 1, `${a.slug} links to no other article`);
+  }
+});

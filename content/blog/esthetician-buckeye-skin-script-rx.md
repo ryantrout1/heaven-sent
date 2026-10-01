@@ -41,3 +41,5 @@ Searching for an esthetician in Buckeye, AZ or a spa near me often comes down to
 ## Ready to find your fit
 
 If you're curious how Skin Script Rx and a customized facial might fit your skin and your goals, you can [view all services](/services) or [book your appointment](https://www.heavensentbeautyspa.com/) to start with a consult.
+
+See our [facials in Buckeye, AZ](/services/facials) for every facial and current price. New here? Read [What to Expect at Your First Facial](/blog/what-to-expect-at-your-first-facial) and [How to Prepare for a Facial and What It Costs](/blog/prepare-for-facial-and-cost).

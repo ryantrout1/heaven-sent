@@ -45,3 +45,5 @@ If something does not feel right after your visit, or you are not sure whether a
 ## Visit Heaven Sent Beauty in Buckeye
 
 At Heaven Sent Beauty, every brow lamination appointment is built around your face, your goals, and your pace, never a template. If you're curious whether brow lamination is a good fit for you, [book your appointment](https://www.heavensentbeautyspa.com/) and let's talk it through in person.
+
+See [brow lamination in Buckeye, AZ](/services/brows) for pricing and answers to common questions.

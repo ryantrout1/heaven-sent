@@ -55,3 +55,5 @@ A few gentle habits help your extensions, classic or hybrid, look their best bet
 The honest answer is that it depends on your natural lashes and what feels like you. That's exactly what your first visit is for. We'll talk through your goals, look at your natural lash line, and decide together whether classic or hybrid extensions are the better fit, all at a pace that never feels rushed.
 
 Ready to see your options in person? [Book Your Appointment](https://www.heavensentbeautyspa.com/) or [View All Services](https://www.heavensentbeautyspa.com/services) to see current classic and hybrid lash pricing.
+
+See [lash extensions in Buckeye, AZ](/services/lashes) for pricing and answers to common questions. Still deciding between a lift and extensions? Read [Lash Lift or Lash Extensions: Which Should You Choose?](/blog/lash-lift-or-lash-extensions).

@@ -56,3 +56,5 @@ Still undecided? That is what the consultation is for. Tell Jayslyn the look you
 ## Book your lashes
 
 You can see every lash option on the [Services page](/services), including lifts, tints, extensions and fills. Hours are by appointment. You can book online or call 623-215-6084.
+
+See [lash extensions and lash lifts in Buckeye, AZ](/services/lashes) for pricing and answers to common questions. Thinking about your brows too? Read [What Is Brow Lamination?](/blog/what-is-brow-lamination).

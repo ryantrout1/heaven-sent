@@ -56,3 +56,5 @@ Afterward, protect your skin from the sun, as you would after any exfoliating tr
 Dermaplaning suits many skin types, but it is not for every situation. Tell Jayslyn before your treatment if you have active breakouts, irritated or sunburned skin, or skin that is very sensitive. You will talk it through together at your consultation, and she will tell you honestly whether it is a good fit today or whether another facial would serve you better.
 
 If you are not sure, a Customized Facial is a good starting point. It is tailored to your skin's needs.
+
+See our [facials in Buckeye, AZ](/services/facials) for the Dermaplaning Facial, the add-on and every price. New to facials? Read [What to Expect at Your First Facial](/blog/what-to-expect-at-your-first-facial).

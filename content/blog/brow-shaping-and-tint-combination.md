@@ -51,3 +51,5 @@ You will be seen one at a time, with no rushing between clients. We take time to
 Pricing for brow shaping and brow tint is listed on our services page, along with the rest of the brow and lash menu.
 
 Ready to see what a fresh shape and a little tint could do for your look? [Book Your Appointment](https://www.heavensentbeautyspa.com/) and let's find the right combination for your brows.
+
+See [brow lamination, shaping and tint in Buckeye, AZ](/services/brows) for pricing and answers to common questions, or read [Brow Lamination Aftercare: Make Your Shape Last](/blog/brow-lamination-aftercare-guide).

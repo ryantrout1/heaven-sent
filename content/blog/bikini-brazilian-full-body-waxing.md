@@ -49,3 +49,5 @@ There is no wrong place to start. Some clients prefer the simplicity of a bikini
 Every service happens in the same quiet studio, with the same unhurried pace, so you can settle in and feel taken care of from start to finish.
 
 Ready to find the right fit for you? [Book Your Appointment](https://www.heavensentbeautyspa.com/) or [View All Services](https://www.heavensentbeautyspa.com/services) to see waxing options in detail.
+
+See [waxing in Buckeye, AZ](/services/waxing) for every waxing service, current prices and answers to common questions. Planning your brows too? Read [Brow Shaping and Brow Tint: Which Do You Need?](/blog/brow-shaping-and-tint-combination).

@@ -54,3 +54,5 @@ Because every treatment is built around the person receiving it, the right facia
 Heaven Sent Beauty is a quiet spa studio in Buckeye that sees one client at a time. There's no stopwatch and no rushing, just an unhurried treatment built around your skin using Skin Script Rx products. Whether you're due for your first facial or you're returning for a ritual you already know, the space is designed to help you slow down and feel cared for.
 
 Ready to find your fit? [View All Services](https://www.heavensentbeautyspa.com/services) or [Book Your Appointment](https://www.heavensentbeautyspa.com/) today.
+
+See our [facials in Buckeye, AZ](/services/facials) for every facial and current price. Read [What to Expect at Your First Facial](/blog/what-to-expect-at-your-first-facial) and [What Is Dermaplaning, and Is It Right for You?](/blog/what-is-dermaplaning) before you book.
