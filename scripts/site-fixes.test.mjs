@@ -72,3 +72,17 @@ test('Contact copy covers By appointment and the first visit, with enough words,
   assert.doesNotMatch(all, /—/);
   assert.ok(contactWordCount() >= 110, `only ${contactWordCount()} added words`);
 });
+
+test('every main page has a canonical URL on the www host and matching social tags', async () => {
+  const { pageMetadata } = await import('../lib/page-meta.mjs');
+  const paths = { home: '/', about: '/about', contact: '/contact', services: '/services' };
+  for (const [k, p] of Object.entries(paths)) {
+    const m = pageMetadata(k);
+    const url = p === '/' ? SITE_URL : `${SITE_URL}${p}`;
+    assert.equal(m.alternates.canonical, url);
+    assert.equal(m.openGraph.url, url);
+    assert.equal(m.openGraph.title, m.title);
+    assert.equal(m.twitter.card, 'summary_large_image');
+    assert.match(m.openGraph.images[0].url, /^https:\/\/www\.heavensentbeautyspa\.com\/images\/og-default\.jpg$/);
+  }
+});

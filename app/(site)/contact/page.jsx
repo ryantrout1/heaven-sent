@@ -1,9 +1,9 @@
 import Nav from '../../../components/Nav';
 import Footer from '../../../components/Footer';
-import { PAGE_META } from '../../../lib/page-meta.mjs';
+import { pageMetadata } from '../../../lib/page-meta.mjs';
 import { CONTACT_COPY } from '../../../lib/contact-copy.mjs';
 
-export const metadata = { title: PAGE_META.contact.title, description: PAGE_META.contact.description };
+export const metadata = pageMetadata('contact');
 
 const wrap = { maxWidth: 720, margin: '0 auto', padding: '140px 6vw 120px', textAlign: 'center' };
 const eyebrow = { fontFamily: "'Jost', sans-serif", letterSpacing: '0.3em', textTransform: 'uppercase', fontSize: 13, color: 'var(--rose-deep)' };

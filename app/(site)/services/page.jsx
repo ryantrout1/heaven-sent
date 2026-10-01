@@ -3,9 +3,9 @@ import Nav from '../../../components/Nav';
 import Footer from '../../../components/Footer';
 import Section from '../../../components/Section';
 import ServicesEnhancer from '../../../components/ServicesEnhancer';
-import { PAGE_META } from '../../../lib/page-meta.mjs';
+import { pageMetadata } from '../../../lib/page-meta.mjs';
 
-export const metadata = { title: PAGE_META.services.title, description: PAGE_META.services.description };
+export const metadata = pageMetadata('services');
 
 export default function Services() {
   return (

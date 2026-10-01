@@ -2,11 +2,11 @@ import sections from '../../lib/sections.json';
 import Nav from '../../components/Nav';
 import Footer from '../../components/Footer';
 import Section from '../../components/Section';
-import { PAGE_META } from '../../lib/page-meta.mjs';
+import { pageMetadata } from '../../lib/page-meta.mjs';
 import { beautySalonJsonLd } from '../../lib/local-business.mjs';
 import { jsonLdString } from '../../lib/blog-schema.mjs';
 
-export const metadata = { description: PAGE_META.home.description };
+export const metadata = pageMetadata('home');
 
 export default function Home() {
   return (
