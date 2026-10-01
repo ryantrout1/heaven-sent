@@ -336,3 +336,7 @@ test('every article links to an older article (never a future one), except the o
     if (a.slug !== oldest.slug) assert.ok(links.length >= 1, `${a.slug} links to no other article`);
   }
 });
+
+test('Bing Webmaster Tools verification tag is in the site layout', () => {
+  assert.match(fsSync.readFileSync('app/(site)/layout.jsx', 'utf8'), /'msvalidate\.01': '0D943468C18944FF4F5E947928108EA3'/);
+});
