@@ -152,3 +152,40 @@ test('Contact page has a services paragraph for search', async () => {
   const { CONTACT_COPY } = await import('../lib/contact-copy.mjs');
   assert.ok(CONTACT_COPY.offerText.split(/\s+/).length >= 40);
 });
+
+// ---- Phase 1: speed and accessibility ----
+const luminance = (hex) => {
+  const c = [1, 3, 5].map((i) => parseInt(hex.slice(i, i + 2), 16) / 255).map((v) => (v <= 0.03928 ? v / 12.92 : ((v + 0.055) / 1.055) ** 2.4));
+  return 0.2126 * c[0] + 0.7152 * c[1] + 0.0722 * c[2];
+};
+const contrast = (a, b) => {
+  const [x, y] = [luminance(a), luminance(b)];
+  return (Math.max(x, y) + 0.05) / (Math.min(x, y) + 0.05);
+};
+
+test('brand text colors meet 4.5:1 contrast on every cream background', () => {
+  const css = fsSync.readFileSync('app/globals.css', 'utf8');
+  const tok = (n) => css.match(new RegExp(`--${n}:\\s*(#[0-9a-fA-F]{6})`))[1];
+  for (const fg of ['mocha', 'rose-deep'])
+    for (const bg of ['cream', 'cream-2'])
+      assert.ok(contrast(tok(fg), tok(bg)) >= 4.5, `--${fg} on --${bg} is ${contrast(tok(fg), tok(bg)).toFixed(2)}`);
+  assert.ok(contrast(tok('cream'), tok('rose-deep')) >= 4.5, 'cream text on a rose-deep button');
+});
+
+test('footer has no skipped heading levels and both logos carry width and height', () => {
+  const s = JSON.parse(fsSync.readFileSync('lib/sections.json', 'utf8'));
+  assert.ok(!/<h[4-6]/.test(s.footer), 'footer must not use h4-h6 (they skip heading levels)');
+  for (const k of ['nav', 'footer']) {
+    for (const img of s[k].match(/<img[^>]*logo|<img[^>]*img-0da5a4aad9[^>]*>/g) || [])
+      assert.match(img, /width="\d+"/, `${k} logo needs width`);
+  }
+});
+
+test('fonts load from link tags, not a CSS @import, and only the families in use', () => {
+  const css = fsSync.readFileSync('app/globals.css', 'utf8');
+  assert.ok(!/@import url\(/.test(css), 'remove the @import font chain');
+  const layout = fsSync.readFileSync('app/(site)/layout.jsx', 'utf8');
+  assert.match(layout, /rel="preconnect"/);
+  assert.match(layout, /fonts\.googleapis\.com\/css2/);
+  assert.ok(!/Lato|DM\+Serif/.test(layout), 'unused families removed');
+});
