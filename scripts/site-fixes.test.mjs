@@ -191,3 +191,84 @@ test('fonts load from link tags, not a CSS @import, and only the families in use
   for (const f of ['app/(site)/layout.jsx', 'app/(article)/blog/[slug]/layout.jsx'])
     assert.match(fsSync.readFileSync(f, 'utf8'), /<FontLinks \/>/, `${f} must include the font links`);
 });
+
+// ---- Phases 2 and 3: service pages and FAQs ----
+const SLUGS = ['facials', 'lashes', 'brows', 'waxing'];
+const words = (t) => t.trim().split(/\s+/);
+
+test('four service pages have unique titles and descriptions, canonical /services/<slug>', async () => {
+  const { PAGE_META, pageMetadata } = await import('../lib/page-meta.mjs');
+  const { BUSINESS_NAME, absoluteUrl } = await import('../lib/site.mjs');
+  const seenT = new Set(); const seenD = new Set(Object.values(PAGE_META).slice(0, 4).map((m) => m.description));
+  for (const s of SLUGS) {
+    const m = pageMetadata(s);
+    assert.ok(m.title.length >= 40 && m.title.length <= 60, `${s} title is ${m.title.length}: ${m.title}`);
+    assert.ok(m.title.endsWith(BUSINESS_NAME) && /Buckeye/.test(m.title), `${s} title`);
+    assert.ok(m.description.length >= 140 && m.description.length <= 160, `${s} description is ${m.description.length}`);
+    assert.ok(!seenT.has(m.title) && !seenD.has(m.description), `${s} duplicates a title or description`);
+    seenT.add(m.title); seenD.add(m.description);
+    assert.equal(m.alternates.canonical, absoluteUrl(`/services/${s}`));
+    assert.equal(m.openGraph.url, absoluteUrl(`/services/${s}`));
+  }
+});
+
+test('service pages: keyword in the first 100 words, services with prices that match the Services page', async () => {
+  const { servicePageModel } = await import('../lib/service-pages.mjs');
+  const { parseServices } = await import('../lib/seo-schema.mjs');
+  const all = parseServices().flatMap((c) => c.items);
+  const must = { facials: 'Customized Facial', lashes: 'Lash Lift', brows: 'Brow Lamination', waxing: 'Brazilian Wax' };
+  for (const s of SLUGS) {
+    const m = servicePageModel(s);
+    const first100 = words([m.intro.join(' ')].join(' ')).slice(0, 100).join(' ').toLowerCase();
+    assert.ok(first100.includes(m.keyword.toLowerCase()), `${s}: "${m.keyword}" not in first 100 words`);
+    assert.match(m.h1, /Buckeye/);
+    assert.ok(m.items.length >= 3, `${s} has too few services`);
+    assert.ok(m.items.some((i) => i.name === must[s]), `${s} is missing ${must[s]}`);
+    for (const i of m.items) {
+      const src = all.find((a) => a.name === i.name);
+      assert.ok(src && src.price, `${s}: ${i.name} has no price on the Services page`);
+      assert.equal(i.price, src.price, `${s}: ${i.name} price drifted`);
+    }
+  }
+});
+
+test('each service page has 4 to 6 FAQs with real answers and no em dashes', async () => {
+  const { servicePageModel } = await import('../lib/service-pages.mjs');
+  for (const s of SLUGS) {
+    const m = servicePageModel(s);
+    assert.ok(m.faqs.length >= 4 && m.faqs.length <= 6, `${s} has ${m.faqs.length} FAQs`);
+    for (const f of m.faqs) {
+      assert.ok(f.q.endsWith('?'), `${s}: "${f.q}"`);
+      const n = words(f.a).length;
+      assert.ok(n >= 12 && n <= 90, `${s}: answer to "${f.q}" has ${n} words`);
+    }
+    const copy = JSON.stringify([m.h1, m.intro, m.expect, m.faqs]);
+    assert.ok(!/—|–/.test(copy), `${s} copy contains a dash character`);
+  }
+});
+
+test('FAQPage schema matches the visible FAQs exactly; Service schema carries the same prices', async () => {
+  const { servicePageModel } = await import('../lib/service-pages.mjs');
+  const { faqJsonLd, servicePageJsonLd, serviceBreadcrumbJsonLd } = await import('../lib/seo-schema.mjs');
+  for (const s of SLUGS) {
+    const m = servicePageModel(s);
+    const f = faqJsonLd(m.faqs);
+    assert.equal(f['@type'], 'FAQPage');
+    assert.equal(f.mainEntity.length, m.faqs.length);
+    f.mainEntity.forEach((e, i) => {
+      assert.equal(e.name, m.faqs[i].q);
+      assert.equal(e.acceptedAnswer.text, m.faqs[i].a);
+    });
+    const offers = servicePageJsonLd(s).hasOfferCatalog.itemListElement;
+    assert.equal(offers.length, m.items.length);
+    offers.forEach((o, i) => assert.equal(o.price, m.items[i].price));
+    const b = serviceBreadcrumbJsonLd(m.h1, `/services/${s}`).itemListElement;
+    assert.deepEqual(b.map((x) => x.name), ['Home', 'Services', m.h1]);
+  }
+});
+
+test('sitemap lists the four service pages', async () => {
+  const { buildSitemapEntries } = await import('../lib/blog-feed.mjs');
+  const urls = buildSitemapEntries([]).map((e) => e.url);
+  for (const s of SLUGS) assert.ok(urls.includes(`${SITE_URL}/services/${s}`), `${s} missing from sitemap`);
+});
