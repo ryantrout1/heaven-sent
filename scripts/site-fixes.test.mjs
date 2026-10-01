@@ -103,7 +103,7 @@ test('service schema is built from the Services page: every price on the page ap
 test('every gallery and about photo is a real img with alt text; no background-image photos remain', () => {
   const fs = require_fs();
   const s = JSON.parse(fs.readFileSync('lib/sections.json', 'utf8'));
-  for (const k of ['gallery', 'aboutFull']) {
+  for (const k of ['gallery', 'aboutFull', 'about']) {
     assert.doesNotMatch(s[k], /background-image/, `${k} still has a CSS background photo`);
     for (const t of s[k].match(/<img[^>]*>/g) || []) assert.match(t, /alt="[^"]{12,}"/, `missing alt: ${t.slice(0, 80)}`);
   }

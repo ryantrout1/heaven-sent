@@ -1574,7 +1574,6 @@ html, body { background: #1a1410; }
 .v4 .about-visual { position: relative; }
 .v4 .about-visual .main {
   aspect-ratio: 4/5;
-  background: url(/images/img-748f64396d.jpg) center 25%/cover no-repeat;
   border-radius: 50% 50% 8% 8% / 12% 12% 8% 8%;
   position: relative;
 }
