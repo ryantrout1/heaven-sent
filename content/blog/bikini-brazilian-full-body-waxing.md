@@ -1,6 +1,7 @@
 ---
 title: "Bikini, Brazilian & Full Body Waxing: The Difference"
 description: "Not sure what separates a bikini wax from a Brazilian? Here's a calm, clear guide plus what to expect from body waxing in Buckeye, Arizona."
+seoTitle: "Bikini vs Brazilian vs Full Body Wax"
 path: "/blog/bikini-brazilian-full-body-waxing"
 date: 2026-12-08
 image: "/images/img-bfe6408fe7.jpg"

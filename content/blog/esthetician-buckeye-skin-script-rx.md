@@ -1,6 +1,7 @@
 ---
 title: "Finding an Esthetician in Buckeye AZ: Skin Script Rx"
 description: "Looking for an esthetician in Buckeye AZ? Learn how Skin Script Rx products shape customized facials at this quiet, one-client-at-a-time spa studio."
+seoTitle: "Esthetician in Buckeye AZ"
 path: "/blog/esthetician-buckeye-skin-script-rx"
 date: 2026-12-24
 image: "/images/gallery-products-purple.jpg"

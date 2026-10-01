@@ -1,6 +1,7 @@
 ---
 title: "Classic vs Hybrid Lash Extensions, and Fills Explained"
 description: "Curious about classic lash extensions, hybrid lash extensions, or a classic lash fill? Here's how each works at our quiet Buckeye, Arizona studio."
+seoTitle: "Classic vs Hybrid Lash Extensions"
 path: "/blog/classic-hybrid-lash-extensions-fill"
 date: 2026-11-23
 image: "/images/gallery-lash-1.jpg"

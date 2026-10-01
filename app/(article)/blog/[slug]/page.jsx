@@ -19,14 +19,16 @@ export function generateMetadata({ params }) {
   if (!a) return {};
   const img = articleImage(a);
   const url = absoluteUrl(a.path);
+  const shownTitle = a.seoTitle || a.title;
+  const shownDescription = a.seoDescription || a.description;
   return {
-    title: { absolute: `${a.title} | ${BUSINESS_NAME}` },
-    description: a.description,
+    title: { absolute: `${shownTitle} | ${BUSINESS_NAME}` },
+    description: shownDescription,
     alternates: { canonical: url, types: RSS_TYPES },
     openGraph: {
       type: 'article',
-      title: a.title,
-      description: a.description,
+      title: shownTitle,
+      description: shownDescription,
       url,
       siteName: BUSINESS_NAME,
       publishedTime: a.date,
@@ -34,7 +36,7 @@ export function generateMetadata({ params }) {
       authors: [BUSINESS_NAME],
       images: [{ url: img.url, width: img.width, height: img.height, alt: img.alt }],
     },
-    twitter: { card: 'summary_large_image', title: a.title, description: a.description, images: [img.url] },
+    twitter: { card: 'summary_large_image', title: shownTitle, description: shownDescription, images: [img.url] },
   };
 }
 

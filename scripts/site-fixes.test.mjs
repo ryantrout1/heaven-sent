@@ -136,3 +136,19 @@ test('roadmap keywords appear in the visible copy of the Services and home pages
   for (const t of ['bikini wax', 'brazilian wax', 'eyebrow waxing', 'heaven sent beauty spa', 'lash lift and tint', 'lip wax', 'spa in buckeye, az', 'full body waxing'])
     assert.ok(home.includes(t), `Home page is missing "${t}"`);
 });
+
+test('every article has a search title of 60 characters or fewer and a description of 160 or fewer', async () => {
+  const { getAllArticles } = await import('../lib/blog.mjs');
+  const { BUSINESS_NAME } = await import('../lib/site.mjs');
+  for (const a of getAllArticles()) {
+    const t = `${a.seoTitle || a.title} | ${BUSINESS_NAME}`;
+    const d = a.seoDescription || a.description;
+    assert.ok(t.length <= 60, `${a.slug} title is ${t.length}: ${t}`);
+    assert.ok(d.length <= 160, `${a.slug} description is ${d.length}`);
+  }
+});
+
+test('Contact page has a services paragraph for search', async () => {
+  const { CONTACT_COPY } = await import('../lib/contact-copy.mjs');
+  assert.ok(CONTACT_COPY.offerText.split(/\s+/).length >= 40);
+});

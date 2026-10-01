@@ -1,6 +1,7 @@
 ---
 title: "Brow Shaping and Brow Tint: Which Do You Need?"
 description: "Curious about brow shaping, brow tint, or eyebrow waxing in Buckeye? Learn how each works and how to choose the right combination at Heaven Sent Beauty."
+seoTitle: "Brow Shaping vs Brow Tint"
 path: "/blog/brow-shaping-and-tint-combination"
 date: 2026-10-26
 image: "/images/gallery-brow.jpg"

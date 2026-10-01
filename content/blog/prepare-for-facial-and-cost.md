@@ -1,6 +1,7 @@
 ---
 title: "How to Prepare for a Facial and What It Costs"
 description: "Simple prep tips before your facial and a breakdown of facial pricing at Heaven Sent Beauty, a quiet spa studio in Buckeye, Arizona."
+seoTitle: "How to Prepare for a Facial and Cost"
 path: "/blog/prepare-for-facial-and-cost"
 date: 2026-11-09
 image: "/images/img-a7d4936284.jpg"

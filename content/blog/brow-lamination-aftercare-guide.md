@@ -1,6 +1,7 @@
 ---
 title: "Brow Lamination Aftercare: Make Your Shape Last"
 description: "Just had brow lamination? Simple aftercare for the first 48 hours and the weeks after, from Heaven Sent Beauty, a quiet studio in Buckeye, Arizona."
+seoTitle: "Brow Lamination Aftercare Guide"
 path: "/blog/brow-lamination-aftercare-guide"
 date: 2026-10-08
 image: "/images/blog/brow-and-lash-close-up.jpg"

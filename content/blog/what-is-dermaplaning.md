@@ -1,6 +1,8 @@
 ---
 title: "What Is Dermaplaning, and Is It Right for You?"
 description: "Dermaplaning gently exfoliates dead skin cells and peach fuzz for smoother, brighter-looking skin. Here is how it works and what to expect at Heaven Sent Beauty in Buckeye, AZ."
+seoTitle: "What Is Dermaplaning?"
+seoDescription: "Dermaplaning gently exfoliates dead skin and peach fuzz for smoother, brighter skin. See how it works and what to expect at Heaven Sent Beauty in Buckeye, AZ."
 path: "/blog/what-is-dermaplaning"
 date: 2026-09-16
 image: "/images/blog/jayslyn-pink-gloves.jpg"

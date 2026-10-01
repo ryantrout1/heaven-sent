@@ -36,6 +36,10 @@ export default function Contact() {
               <div><div style={label}>Phone</div><div style={val}>623-215-6084</div></div>
             </div>
             <div style={{ ...block, textAlign: 'left' }}>
+              <h2 style={h2s}>{CONTACT_COPY.offerHeading}</h2>
+              <p style={{ ...body, margin: 0 }}>{CONTACT_COPY.offerText} See the full menu and prices on our <a href="/services" style={{ color: 'var(--rose-deep)' }}>services page</a>, or read our <a href="/blog" style={{ color: 'var(--rose-deep)' }}>blog</a> for skincare and beauty guides before you book.</p>
+            </div>
+            <div style={{ ...block, textAlign: 'left' }}>
               <h2 style={h2s}>{CONTACT_COPY.visitHeading}</h2>
               <p style={body}>{CONTACT_COPY.visitIntro}</p>
               {CONTACT_COPY.steps.map((s) => (

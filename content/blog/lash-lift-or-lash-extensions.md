@@ -1,6 +1,7 @@
 ---
 title: "Lash Lift or Lash Extensions: Which Should You Choose?"
 description: "Not sure whether a lash lift or lash extensions suit you? Here is how they differ, who each is for, and the options at Heaven Sent Beauty in Buckeye, AZ."
+seoTitle: "Lash Lift or Lash Extensions?"
 path: "/blog/lash-lift-or-lash-extensions"
 date: 2026-09-30
 image: "/images/blog/lash-extensions-close-up.jpg"
