@@ -153,3 +153,30 @@ test('relatedArticles: newest first, excludes current, max 3', () => {
   assert.deepEqual(relatedArticles(fake(2), 'a-0').map((a) => a.slug), ['a-1']);
   assert.deepEqual(relatedArticles(fake(1), 'a-0'), []);
 });
+
+// Scheduled publishing: an article goes live on its date, in Arizona time (UTC-7, no daylight saving).
+import { arizonaToday, isLive, liveArticles } from '../lib/blog.mjs';
+
+test('today in Arizona turns over at midnight Arizona time, which is 07:00 UTC', () => {
+  assert.equal(arizonaToday(new Date('2026-10-08T06:59:59Z')), '2026-10-07');
+  assert.equal(arizonaToday(new Date('2026-10-08T07:00:00Z')), '2026-10-08');
+  assert.equal(arizonaToday(new Date('2026-07-01T12:00:00Z')), '2026-07-01');
+});
+
+test('an article is live from its date on, never before', () => {
+  const on = new Date('2026-10-08T07:00:00Z');
+  assert.equal(isLive({ date: '2026-10-07' }, on), true);
+  assert.equal(isLive({ date: '2026-10-08' }, on), true);
+  assert.equal(isLive({ date: '2026-10-09' }, on), false);
+  assert.equal(isLive({ date: '2026-10-08' }, new Date('2026-10-08T06:59:59Z')), false);
+});
+
+test('liveArticles keeps only live articles, newest first', () => {
+  const list = [
+    { slug: 'a', date: '2026-09-16' },
+    { slug: 'b', date: '2026-10-08' },
+    { slug: 'c', date: '2026-12-24' },
+  ];
+  assert.deepEqual(liveArticles(list, new Date('2026-10-08T07:00:00Z')).map((a) => a.slug), ['b', 'a']);
+  assert.deepEqual(liveArticles(list, new Date('2026-10-01T03:00:00Z')).map((a) => a.slug), ['a']);
+});
