@@ -272,3 +272,30 @@ test('sitemap lists the four service pages', async () => {
   const urls = buildSitemapEntries([]).map((e) => e.url);
   for (const s of SLUGS) assert.ok(urls.includes(`${SITE_URL}/services/${s}`), `${s} missing from sitemap`);
 });
+
+// ---- Phase 4: keywords in the first 100 words ----
+const plain = (html) => html.replace(/<svg[\s\S]*?<\/svg>/g, ' ').replace(/<[^>]+>/g, ' ').replace(/&amp;/g, '&').replace(/&nbsp;/g, ' ').replace(/&[a-z#0-9]+;/g, ' ').replace(/\s+/g, ' ').trim();
+const first100 = (t) => t.split(' ').slice(0, 100).join(' ').toLowerCase();
+
+test('every main page opens with its keyword in the first 100 words', async () => {
+  const { PAGE_KEYWORDS } = await import('../lib/seo-keywords.mjs');
+  const s = JSON.parse(fsSync.readFileSync('lib/sections.json', 'utf8'));
+  const text = {
+    home: plain(s.hero + s.trust + s.features),
+    about: plain(s.aboutFull),
+    services: plain(s.servicesFull),
+    contact: 'Get in touch Come say hello. Questions about a treatment, or want to find the right fit for your skin? Reach out or book directly and we will take it from there. Studio 111 Monroe Ave STE 101, Buckeye, AZ 85326 Hours By appointment Phone 623-215-6084', // the fixed top of app/(site)/contact/page.jsx
+  };
+  for (const [page, kw] of Object.entries(PAGE_KEYWORDS))
+    assert.ok(first100(text[page]).includes(kw.toLowerCase()), `${page}: "${kw}" not in first 100 words`);
+});
+
+test('every article opens with its keyword in the first 100 words, and every article has one', async () => {
+  const { ARTICLE_KEYWORDS } = await import('../lib/seo-keywords.mjs');
+  const { getAllArticles } = await import('../lib/blog.mjs');
+  for (const a of getAllArticles()) {
+    const kw = ARTICLE_KEYWORDS[a.slug];
+    assert.ok(kw, `${a.slug} has no keyword in lib/seo-keywords.mjs`);
+    assert.ok(first100(plain(a.html)).includes(kw.toLowerCase()), `${a.slug}: "${kw}" not in first 100 words`);
+  }
+});
