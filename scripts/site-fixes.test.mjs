@@ -125,3 +125,14 @@ test('heading levels never skip on About or Home sections', () => {
 function require_fs() {
   return globalThis.__fs ?? (globalThis.__fs = fsSync);
 }
+
+test('roadmap keywords appear in the visible copy of the Services and home pages', () => {
+  const s = JSON.parse(fsSync.readFileSync('lib/sections.json', 'utf8'));
+  const text = (...k) => k.map((x) => s[x]).join(' ').replace(/<[^>]+>/g, ' ').replace(/&amp;/g, '&').toLowerCase();
+  const svc = text('servicesFull');
+  for (const t of ['brow shaping', 'acne facial', 'anti-aging facial', 'back facial', 'brow lamination', 'brow tint', 'classic lash extensions', 'classic lash fill', 'customized facial', 'dermaplaning facial', 'express facial', 'fire and ice facial', 'golden honey hydrating facial', 'hybrid lash extensions', 'hydrating facial', 'lash lift', 'lash tint', 'ultimate firming facial'])
+    assert.ok(svc.includes(t), `Services page is missing "${t}"`);
+  const home = text('hero', 'trust', 'features', 'services', 'about', 'book', 'gallery');
+  for (const t of ['bikini wax', 'brazilian wax', 'eyebrow waxing', 'heaven sent beauty spa', 'lash lift and tint', 'lip wax', 'spa in buckeye, az', 'full body waxing'])
+    assert.ok(home.includes(t), `Home page is missing "${t}"`);
+});
