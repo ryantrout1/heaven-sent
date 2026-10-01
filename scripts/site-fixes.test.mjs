@@ -1,3 +1,4 @@
+import fsSync from 'node:fs';
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import { PAGE_META } from '../lib/page-meta.mjs';
@@ -86,3 +87,41 @@ test('every main page has a canonical URL on the www host and matching social ta
     assert.match(m.openGraph.images[0].url, /^https:\/\/www\.heavensentbeautyspa\.com\/images\/og-default\.jpg$/);
   }
 });
+
+test('service schema is built from the Services page: every price on the page appears, none invented', async () => {
+  const { parseServices, servicesJsonLd, BUSINESS_ID } = await import('../lib/seo-schema.mjs');
+  const fs = await import('node:fs');
+  const html = JSON.parse(fs.readFileSync('lib/sections.json', 'utf8')).servicesFull;
+  const onPage = [...html.matchAll(/class="svc-price">\$(\d+)</g)].map((m) => m[1]);
+  const cats = parseServices();
+  const parsed = cats.flatMap((c) => c.items.map((i) => i.price)).filter(Boolean);
+  assert.deepEqual(parsed, onPage);
+  assert.equal(servicesJsonLd()['@id'], BUSINESS_ID);
+  assert.equal(beautySalonJsonLd()['@id'], BUSINESS_ID);
+});
+
+test('every gallery and about photo is a real img with alt text; no background-image photos remain', () => {
+  const fs = require_fs();
+  const s = JSON.parse(fs.readFileSync('lib/sections.json', 'utf8'));
+  for (const k of ['gallery', 'aboutFull']) {
+    assert.doesNotMatch(s[k], /background-image/, `${k} still has a CSS background photo`);
+    for (const t of s[k].match(/<img[^>]*>/g) || []) assert.match(t, /alt="[^"]{12,}"/, `missing alt: ${t.slice(0, 80)}`);
+  }
+});
+
+test('heading levels never skip on About or Home sections', () => {
+  const fs = require_fs();
+  const s = JSON.parse(fs.readFileSync('lib/sections.json', 'utf8'));
+  const seq = (html) => (html.match(/<h([1-6])[ >]/g) || []).map((x) => Number(x[2]));
+  for (const parts of [['hero', 'trust', 'features', 'services', 'about', 'book', 'gallery'], ['aboutFull', 'book']]) {
+    let prev = 0;
+    for (const lvl of parts.flatMap((p) => seq(s[p]))) {
+      assert.ok(lvl <= prev + 1, `heading jumps from h${prev} to h${lvl}`);
+      prev = lvl;
+    }
+  }
+});
+
+function require_fs() {
+  return globalThis.__fs ?? (globalThis.__fs = fsSync);
+}

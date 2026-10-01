@@ -1,6 +1,8 @@
 import Nav from '../../../components/Nav';
 import Footer from '../../../components/Footer';
 import { pageMetadata } from '../../../lib/page-meta.mjs';
+import { jsonLdString } from '../../../lib/blog-schema.mjs';
+import { breadcrumbJsonLd } from '../../../lib/seo-schema.mjs';
 import { CONTACT_COPY } from '../../../lib/contact-copy.mjs';
 
 export const metadata = pageMetadata('contact');
@@ -49,6 +51,7 @@ export default function Contact() {
         </section>
       </div>
       <Footer />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: jsonLdString(breadcrumbJsonLd('Contact', '/contact')) }} />
     </>
   );
 }

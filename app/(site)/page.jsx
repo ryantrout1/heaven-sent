@@ -5,6 +5,7 @@ import Section from '../../components/Section';
 import { pageMetadata } from '../../lib/page-meta.mjs';
 import { beautySalonJsonLd } from '../../lib/local-business.mjs';
 import { jsonLdString } from '../../lib/blog-schema.mjs';
+import { websiteJsonLd } from '../../lib/seo-schema.mjs';
 
 export const metadata = pageMetadata('home');
 
@@ -18,6 +19,7 @@ export default function Home() {
       <Section version="v4" html={sections.about + sections.book + sections.gallery} />
       <Footer />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: jsonLdString(beautySalonJsonLd()) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: jsonLdString(websiteJsonLd()) }} />
     </>
   );
 }

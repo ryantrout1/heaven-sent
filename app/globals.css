@@ -1008,7 +1008,7 @@ html, body { background: #1a1410; }
   grid-template-columns: repeat(3, 1fr);
   gap: 60px;
 }
-.v3 .feature h3 {
+.v3 .feature h3, .v3 .feature h2 {
   font-family: 'Fraunces', serif;
   font-weight: 400;
   font-size: 22px;
@@ -2885,6 +2885,7 @@ html, body { background: #1a1410; }
   .photo-gallery .gallery-scroll-wrap:hover .gallery-arrow { opacity: 1; }
 }
 .photo-gallery .g-item {
+  overflow: hidden;
   border-radius: 14px;
   background-size: cover;
   background-position: center;
@@ -3137,12 +3138,12 @@ html, body { background: var(--cream); }
 .v4 .about-more { background: var(--cream-2); padding: 16px 48px 120px; position: relative; }
 .v4 .am-inner { max-width: 1080px; margin: 0 auto; display: grid; gap: 72px; border-top: 1px solid var(--sand); padding-top: 72px; }
 .v4 .am-block .eyebrow { font-size: 12px; letter-spacing: 0.3em; text-transform: uppercase; color: var(--rose-deep); margin-bottom: 18px; }
-.v4 .am-block h3 { font-family: 'Playfair Display', serif; font-weight: 400; font-size: clamp(26px, 3vw, 38px); line-height: 1.15; color: var(--coffee); margin-bottom: 22px; }
+.v4 .am-block h3, .v4 .am-block h2 { font-family: 'Playfair Display', serif; font-weight: 400; font-size: clamp(26px, 3vw, 38px); line-height: 1.15; color: var(--coffee); margin-bottom: 22px; }
 .v4 .am-block p { font-size: 16px; line-height: 1.8; color: var(--mocha); margin-bottom: 16px; max-width: 720px; }
 .v4 .am-steps { list-style: none; display: grid; grid-template-columns: repeat(3, 1fr); gap: 36px; margin-top: 4px; }
 .v4 .am-steps li { display: flex; gap: 16px; }
 .v4 .am-step-no { font-family: 'Outfit', sans-serif; font-size: 13px; letter-spacing: 0.2em; color: var(--rose-deep); padding-top: 5px; }
-.v4 .am-steps h4 { font-family: 'Playfair Display', serif; font-weight: 500; font-size: 19px; color: var(--ink); margin-bottom: 8px; }
+.v4 .am-steps h4, .v4 .am-steps h3 { font-family: 'Playfair Display', serif; font-weight: 500; font-size: 19px; color: var(--ink); margin-bottom: 8px; }
 .v4 .am-steps p { font-size: 14.5px; line-height: 1.7; color: var(--mocha); margin: 0; max-width: none; }
 .v4 .am-tags { list-style: none; display: flex; flex-wrap: wrap; gap: 10px 12px; padding: 0; }
 .v4 .am-tags li { font-family: 'Outfit', sans-serif; font-size: 13px; letter-spacing: 0.05em; color: var(--coffee); background: var(--cream); border: 1px solid var(--sand); border-radius: 999px; padding: 9px 18px; }
@@ -3219,3 +3220,8 @@ html, body { background: var(--cream); }
 .v4 .book-block a.book-secondary { background: transparent; color: var(--cream); border: 1px solid rgba(246,239,230,0.55); }
 .v4 .book-block a.book-secondary:hover { background: var(--cream); color: var(--coffee); }
 @media (max-width: 700px) { .v4 .book-block { padding: 72px 24px; } }
+
+/* Real <img> elements (indexable, with alt text) replacing CSS background photos. */
+.photo-gallery .g-item img { width: 100%; height: 100%; object-fit: cover; object-position: center; display: block; }
+.v4 .about-visual .main { overflow: hidden; }
+.v4 .about-visual .main img { width: 100%; height: 100%; object-fit: cover; display: block; }
