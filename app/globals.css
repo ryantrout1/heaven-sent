@@ -3232,3 +3232,25 @@ html, body { background: var(--cream); }
 .photo-gallery .g-item img { width: 100%; height: 100%; object-fit: cover; object-position: center; display: block; }
 .v4 .about-visual .main { overflow: hidden; }
 .v4 .about-visual .main img { width: 100%; height: 100%; object-fit: cover; display: block; }
+
+/* Service pages (/services/facials, lashes, brows, waxing) reuse the .svc look. */
+.svc.sp .sp-crumbs { font-family: 'Jost', sans-serif; font-size: 13px; color: var(--mocha); margin-bottom: 26px; }
+.svc.sp .sp-crumbs a { color: var(--mocha); text-decoration: underline; text-underline-offset: 3px; }
+.svc.sp .sp-block { margin-top: 56px; }
+.svc.sp .sp-block h2 { font-family: 'Playfair Display', serif; font-weight: 500; font-size: clamp(26px, 3.6vw, 34px); color: var(--ink); margin: 0 0 16px; line-height: 1.15; }
+.svc.sp .sp-text { max-width: 720px; font-size: 16px; line-height: 1.8; color: var(--coffee); }
+.svc.sp .sp-faq details { border-top: 1px solid var(--sand); padding: 18px 0; }
+.svc.sp .sp-faq details:last-child { border-bottom: 1px solid var(--sand); }
+.svc.sp .sp-faq summary { cursor: pointer; font-family: 'Playfair Display', serif; font-weight: 500; font-size: 20px; color: var(--ink); list-style: none; }
+.svc.sp .sp-faq summary::-webkit-details-marker { display: none; }
+.svc.sp .sp-faq summary::after { content: '+'; float: right; color: var(--rose-deep); font-size: 24px; line-height: 1; }
+.svc.sp .sp-faq details[open] summary::after { content: '\2212'; }
+.svc.sp .sp-faq p { max-width: 720px; margin-top: 12px; font-size: 16px; line-height: 1.75; color: var(--coffee); }
+.svc.sp .sp-links { list-style: none; padding: 0; margin: 0 0 8px; }
+.svc.sp .sp-links li { padding: 8px 0; }
+.svc.sp .sp-links a { color: var(--rose-deep); text-decoration: underline; text-underline-offset: 3px; font-size: 17px; }
+.svc .svc-more { margin: 4px 0 18px; font-size: 15px; }
+.svc .svc-more a { color: var(--rose-deep); text-decoration: underline; text-underline-offset: 3px; }
+@media (max-width: 640px) { .svc.sp .sp-block { margin-top: 40px; } }
+
+.svc.sp .svc-intro p + p { margin-top: 14px; }

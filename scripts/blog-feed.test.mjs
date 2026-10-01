@@ -19,11 +19,15 @@ test('sitemap with no articles lists only the site pages, without lastmod, and n
   assert.deepEqual(e.map((x) => x.url), [
     'https://www.heavensentbeautyspa.com/',
     'https://www.heavensentbeautyspa.com/services',
+    'https://www.heavensentbeautyspa.com/services/facials',
+    'https://www.heavensentbeautyspa.com/services/lashes',
+    'https://www.heavensentbeautyspa.com/services/brows',
+    'https://www.heavensentbeautyspa.com/services/waxing',
     'https://www.heavensentbeautyspa.com/about',
     'https://www.heavensentbeautyspa.com/contact',
   ]);
   assert.ok(e.every((x) => x.lastModified === undefined));
-  assert.deepEqual(STATIC_PAGES, ['/', '/services', '/about', '/contact']);
+  assert.deepEqual(STATIC_PAGES, ['/', '/services', '/services/facials', '/services/lashes', '/services/brows', '/services/waxing', '/about', '/contact']);
 });
 
 test('sitemap lists /blog and every article with lastmod from updated, else date', () => {
