@@ -10,12 +10,9 @@ import { optimizeBodyImages } from '../../../../lib/blog-html.mjs';
 import { BUSINESS_NAME, absoluteUrl } from '../../../../lib/site.mjs';
 import { articleImage, breadcrumbItems, formatDate, RSS_TYPES } from '../../../../lib/blog-schema.mjs';
 
-// Unknown slugs are a real 404, never a 200.
-export const dynamicParams = false;
-
-export function generateStaticParams() {
-  return getArticles().map((a) => ({ slug: a.slug }));
-}
+// Rendered on each request, so a scheduled article appears the moment its date arrives
+// in Arizona; until then, like any unknown slug, it is a real 404, never a 200.
+export const dynamic = 'force-dynamic';
 
 export function generateMetadata({ params }) {
   const a = getArticles().find((x) => x.slug === params.slug);

@@ -3,6 +3,9 @@ import { getArticles, paginate } from '../../../lib/blog.mjs';
 import { absoluteUrl } from '../../../lib/site.mjs';
 import { RSS_TYPES } from '../../../lib/blog-schema.mjs';
 
+// Hourly refresh, so a scheduled article joins the list on its date.
+export const revalidate = 3600;
+
 export const metadata = {
   title: { absolute: 'Blog | Skincare and Beauty Articles | Heaven Sent Beauty' },
   description: `${BLOG_INTRO} Read on for facials, brows, lashes and waxing from a quiet spa studio.`,

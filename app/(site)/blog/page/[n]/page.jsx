@@ -1,14 +1,17 @@
 import { notFound } from 'next/navigation';
 import BlogIndex, { BLOG_INTRO } from '../../../../../components/BlogIndex';
-import { getArticles, paginate } from '../../../../../lib/blog.mjs';
+import { getAllArticles, getArticles, paginate } from '../../../../../lib/blog.mjs';
 import { absoluteUrl } from '../../../../../lib/site.mjs';
 import { pageHref, RSS_TYPES } from '../../../../../lib/blog-schema.mjs';
 
 // Only pages 2..N exist; page 1 is /blog itself.
 export const dynamicParams = false;
+// Hourly refresh, so pages fill as scheduled articles go live.
+export const revalidate = 3600;
 
+// Pages for every article, scheduled ones included; a page with no live articles yet answers 404.
 export function generateStaticParams() {
-  const { pages } = paginate(getArticles(), 1);
+  const { pages } = paginate(getAllArticles(), 1);
   return Array.from({ length: Math.max(0, pages - 1) }, (_, i) => ({ n: String(i + 2) }));
 }
 
