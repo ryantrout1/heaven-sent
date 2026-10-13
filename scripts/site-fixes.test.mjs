@@ -6,6 +6,7 @@ import { CONTACT_COPY, contactWordCount } from '../lib/contact-copy.mjs';
 import { beautySalonJsonLd } from '../lib/local-business.mjs';
 import { jsonLdString } from '../lib/blog-schema.mjs';
 import { SITE_URL, INSTAGRAM_URL, FACEBOOK_URL } from '../lib/site.mjs';
+import { BUSINESS, mergeBusiness } from '../lib/business.mjs';
 
 const pages = ['home', 'about', 'contact', 'services'];
 
@@ -38,25 +39,29 @@ test('descriptions and titles contain no em dashes', () => {
   }
 });
 
-test('BeautySalon JSON-LD has the required fields and nothing invented', () => {
+test('BeautySalon JSON-LD comes from the business facts, with opening hours only when the facts have them', () => {
   const ld = beautySalonJsonLd();
   assert.equal(ld['@context'], 'https://schema.org');
   assert.equal(ld['@type'], 'BeautySalon');
-  assert.equal(ld.name, 'Heaven Sent Beauty');
+  assert.equal(ld.name, BUSINESS.name);
   assert.equal(ld.url, SITE_URL);
   assert.deepEqual(ld.address, {
     '@type': 'PostalAddress',
-    streetAddress: '111 Monroe Ave STE 101',
-    addressLocality: 'Buckeye',
-    addressRegion: 'AZ',
-    postalCode: '85326',
+    streetAddress: BUSINESS.addressParts.street,
+    addressLocality: BUSINESS.addressParts.city,
+    addressRegion: BUSINESS.addressParts.region,
+    postalCode: String(BUSINESS.addressParts.postalCode).slice(0, 5),
     addressCountry: 'US',
   });
   assert.equal(ld.telephone.replace(/\D/g, '').slice(-10), '6232156084');
   assert.deepEqual(ld.sameAs, [INSTAGRAM_URL, FACEBOOK_URL]);
-  for (const bad of ['openingHours', 'openingHoursSpecification', 'priceRange', 'aggregateRating', 'review', 'geo']) {
+  for (const bad of ['openingHours', 'priceRange', 'aggregateRating', 'review', 'geo']) {
     assert.ok(!(bad in ld), `${bad} must not be present`);
   }
+  const none = beautySalonJsonLd(mergeBusiness(null));
+  assert.ok(!('openingHoursSpecification' in none));
+  const withHours = beautySalonJsonLd(mergeBusiness({ openingHours: [{ dayOfWeek: 'Tuesday', opens: '10:00', closes: '17:00' }] }));
+  assert.deepEqual(withHours.openingHoursSpecification, [{ '@type': 'OpeningHoursSpecification', dayOfWeek: 'https://schema.org/Tuesday', opens: '10:00', closes: '17:00' }]);
 });
 
 test('BeautySalon JSON-LD serializes safely for a script tag', () => {
@@ -65,9 +70,9 @@ test('BeautySalon JSON-LD serializes safely for a script tag', () => {
   assert.equal(JSON.parse(s)['@type'], 'BeautySalon');
 });
 
-test('Contact copy covers By appointment and the first visit, with enough words, and no parking claim', () => {
+test('Contact copy covers booking ahead and the first visit, with enough words, and no parking claim', () => {
   const all = JSON.stringify(CONTACT_COPY);
-  assert.match(all, /By appointment/i);
+  assert.match(all, /by appointment/i);
   assert.match(all, /first visit/i);
   assert.doesNotMatch(all, /parking/i);
   assert.doesNotMatch(all, /—/);

@@ -1,0 +1,113 @@
+{
+  "version": 1,
+  "note": "Written by the Miloe engine from the business's facts. Change the facts in the engine, not here.",
+  "name": "Heaven Sent Beauty",
+  "phone": "(623) 215-6084",
+  "phoneHref": "tel:+16232156084",
+  "email": null,
+  "address": "111 Monroe Ave, Suite 101, Buckeye, AZ 85326-2707",
+  "addressParts": {
+    "street": "111 Monroe Ave, Suite 101",
+    "city": "Buckeye",
+    "region": "AZ",
+    "postalCode": "85326-2707"
+  },
+  "bookingLink": "https://www.vagaro.com/monroesalonandspa",
+  "hours": "Monday Closed; Tuesday 10:00 to 17:00; Wednesday 10:00 to 17:00; Thursday 11:00 to 19:00; Friday 10:00 to 17:00; Saturday 10:00 to 17:00; Sunday Closed",
+  "hoursLines": [
+    {
+      "day": "Monday",
+      "words": "Closed"
+    },
+    {
+      "day": "Tuesday",
+      "words": "10:00 AM to 5:00 PM"
+    },
+    {
+      "day": "Wednesday",
+      "words": "10:00 AM to 5:00 PM"
+    },
+    {
+      "day": "Thursday",
+      "words": "11:00 AM to 7:00 PM"
+    },
+    {
+      "day": "Friday",
+      "words": "10:00 AM to 5:00 PM"
+    },
+    {
+      "day": "Saturday",
+      "words": "10:00 AM to 5:00 PM"
+    },
+    {
+      "day": "Sunday",
+      "words": "Closed"
+    }
+  ],
+  "openingHours": [
+    {
+      "dayOfWeek": "Tuesday",
+      "opens": "10:00",
+      "closes": "17:00"
+    },
+    {
+      "dayOfWeek": "Wednesday",
+      "opens": "10:00",
+      "closes": "17:00"
+    },
+    {
+      "dayOfWeek": "Thursday",
+      "opens": "11:00",
+      "closes": "19:00"
+    },
+    {
+      "dayOfWeek": "Friday",
+      "opens": "10:00",
+      "closes": "17:00"
+    },
+    {
+      "dayOfWeek": "Saturday",
+      "opens": "10:00",
+      "closes": "17:00"
+    }
+  ],
+  "holidayHours": [],
+  "shortDescription": null,
+  "description": "Heaven Sent Beauty is an esthetics studio in Buckeye, AZ, run by licensed esthetician Jayslyn Tramp. We offer customized facials (hydrating, acne, anti-aging, dermaplaning and firming), brow lamination, shaping and tint, lash lifts and lash extensions, and gentle waxing. Every appointment is one client at a time in a quiet private studio, never rushed. Find us at 111 Monroe Ave, Suite 101, in downtown Buckeye. Book through our website or give us a call.",
+  "services": [
+    "Customized Facial",
+    "Hydrating Facial",
+    "Acne Facial",
+    "Anti-Aging Facial",
+    "Dermaplaning Facial",
+    "Fire + Ice Skin Detox Facial",
+    "Ultimate Firming Facial",
+    "Golden Honey Hydrating Facial",
+    "Express Facial",
+    "Men's Facial",
+    "Back Facial",
+    "Brow Lamination",
+    "Brow Shaping",
+    "Brow Tint",
+    "Lash Lift",
+    "Lash Tint",
+    "Classic Lash Extensions",
+    "Classic Lash Fill",
+    "Hybrid Lash Extensions",
+    "Hybrid Lash Fill",
+    "Volume Lash Extensions",
+    "Volume Lash Fill",
+    "Lip Wax",
+    "Underarm Wax",
+    "Full Arm Wax",
+    "Bikini Wax",
+    "Brazilian Wax",
+    "Full Face Rehab Package",
+    "Facial Bundle (3 Sessions)",
+    "LED Light Therapy Add-On",
+    "High Frequency Add-On"
+  ],
+  "serviceArea": null,
+  "facebookUrl": null,
+  "instagramUrl": null
+}

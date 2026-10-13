@@ -1,6 +1,7 @@
 import { SERVICE_SLUGS, SERVICE_PAGES } from '../lib/service-pages.mjs';
 import { PAGE_META } from '../lib/page-meta.mjs';
 import { VAGARO_URL } from '../lib/site.mjs';
+import { BUSINESS, addressOneLine, hoursSummary } from '../lib/business.mjs';
 
 const LABEL = { facials: 'Facials', lashes: 'Lashes', brows: 'Brows', waxing: 'Waxing' };
 
@@ -68,7 +69,7 @@ export default function ServicePage({ model, related = [] }) {
           </ul>
           <a className="svc-cta" href={VAGARO_URL} target="_blank" rel="noopener noreferrer">Book an appointment</a>
         </section>
-        <div className="svc-foot">Hours are by appointment. Call 623-215-6084 or book online. 111 Monroe Ave STE 101, Buckeye, AZ 85326.</div>
+        <div className="svc-foot">{hoursSummary() ? `Open ${hoursSummary()}.` : 'Hours are by appointment.'} Call {BUSINESS.phone} or book online. {addressOneLine()}.</div>
       </main>
     </div>
   );

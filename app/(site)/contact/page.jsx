@@ -4,6 +4,7 @@ import { pageMetadata } from '../../../lib/page-meta.mjs';
 import { jsonLdString } from '../../../lib/blog-schema.mjs';
 import { breadcrumbJsonLd } from '../../../lib/seo-schema.mjs';
 import { CONTACT_COPY } from '../../../lib/contact-copy.mjs';
+import { BUSINESS, addressOneLine, hoursWords } from '../../../lib/business.mjs';
 
 export const metadata = pageMetadata('contact');
 
@@ -31,9 +32,9 @@ export default function Contact() {
             <h1>Come say <em style={{ fontFamily: "'Cormorant Garamond', serif", fontStyle: 'italic', color: 'var(--rose-deep)' }}>hello</em>.</h1>
             <p style={lead}>Questions about a treatment, or want to find the right fit for your skin? Reach out — or book directly and we&apos;ll take it from there.</p>
             <div style={grid}>
-              <div><div style={label}>Studio</div><div style={val}>111 Monroe Ave STE 101, Buckeye, AZ 85326</div></div>
-              <div><div style={label}>Hours</div><div style={val}>By appointment</div></div>
-              <div><div style={label}>Phone</div><div style={val}>623-215-6084</div></div>
+              <div><div style={label}>Studio</div><div style={val}>{addressOneLine()}</div></div>
+              <div><div style={label}>Hours</div><div style={val}>{BUSINESS.hoursLines ? BUSINESS.hoursLines.map((l) => <div key={l.day}>{l.day}: {l.words}</div>) : hoursWords()}</div></div>
+              <div><div style={label}>Phone</div><div style={val}><a href={BUSINESS.phoneHref} style={{ color: 'inherit' }}>{BUSINESS.phone}</a></div></div>
             </div>
             <div style={{ ...block, textAlign: 'left' }}>
               <h2 style={h2s}>{CONTACT_COPY.offerHeading}</h2>
@@ -50,7 +51,7 @@ export default function Contact() {
               <h2 style={h2s}>{CONTACT_COPY.findHeading}</h2>
               <p style={{ ...body, margin: 0 }}>{CONTACT_COPY.findText}</p>
             </div>
-            <a href="https://www.vagaro.com/monroesalonandspa" target="_blank" rel="noopener noreferrer" style={cta}>Book an Appointment</a>
+            <a href={BUSINESS.bookingLink} target="_blank" rel="noopener noreferrer" style={cta}>Book an Appointment</a>
           </div>
         </section>
       </div>
