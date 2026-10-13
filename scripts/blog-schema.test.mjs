@@ -13,7 +13,7 @@ test('Article JSON-LD has the required fields and absolute URLs', () => {
   assert.equal(j.dateModified, '2026-09-30');
   assert.equal(j.author.name, 'Heaven Sent Beauty');
   assert.equal(j.publisher.name, 'Heaven Sent Beauty');
-  assert.match(j.publisher.logo.url, /^https:\/\/www\.heavensentbeautyspa\.com\/images\//);
+  assert.match(j.publisher.logo.url, /^https:\/\/(www\.heavensentbeautyspa\.com\/images\/|[a-z0-9]+\.public\.blob\.vercel-storage\.com\/)/);
   assert.equal(j.mainEntityOfPage['@id'], 'https://www.heavensentbeautyspa.com/blog/hydrafacial-buckeye');
   assert.deepEqual(j.image, ['https://www.heavensentbeautyspa.com/images/og-default.jpg']);
 });
